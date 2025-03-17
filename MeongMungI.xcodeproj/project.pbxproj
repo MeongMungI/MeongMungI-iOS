@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		090BBE3AACE5D409E7F1948A /* Pods_MeongMungITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE1BC5433340C6D0F4B3F43 /* Pods_MeongMungITests.framework */; };
+		8480CF7A3041E3876F6B604C /* Pods_MeongMungI_MeongMungIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD113FAEF315BD758CFB45E7 /* Pods_MeongMungI_MeongMungIUITests.framework */; };
+		B2F4C35F45A97D59B6EB01FF /* Pods_MeongMungI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB776368A38F7C637C2B994 /* Pods_MeongMungI.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		255A8B7A2D8818F00036D44F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +33,15 @@
 		255A8B602D8818EF0036D44F /* MeongMungI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeongMungI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		255A8B792D8818F00036D44F /* MeongMungITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeongMungITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		255A8B832D8818F00036D44F /* MeongMungIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeongMungIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		29C20B3087203D1128601A71 /* Pods-MeongMungITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeongMungITests.release.xcconfig"; path = "Target Support Files/Pods-MeongMungITests/Pods-MeongMungITests.release.xcconfig"; sourceTree = "<group>"; };
+		4BE1BC5433340C6D0F4B3F43 /* Pods_MeongMungITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MeongMungITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D6CDA282811A53F6BB65394 /* Pods-MeongMungI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeongMungI.debug.xcconfig"; path = "Target Support Files/Pods-MeongMungI/Pods-MeongMungI.debug.xcconfig"; sourceTree = "<group>"; };
+		6186362A2E18BF88383E2626 /* Pods-MeongMungI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeongMungI.release.xcconfig"; path = "Target Support Files/Pods-MeongMungI/Pods-MeongMungI.release.xcconfig"; sourceTree = "<group>"; };
+		7EC33F1EE5A949A14B8D7533 /* Pods-MeongMungITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeongMungITests.debug.xcconfig"; path = "Target Support Files/Pods-MeongMungITests/Pods-MeongMungITests.debug.xcconfig"; sourceTree = "<group>"; };
+		BAB776368A38F7C637C2B994 /* Pods_MeongMungI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MeongMungI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8369092D547C1E47DCDA93C /* Pods-MeongMungI-MeongMungIUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeongMungI-MeongMungIUITests.release.xcconfig"; path = "Target Support Files/Pods-MeongMungI-MeongMungIUITests/Pods-MeongMungI-MeongMungIUITests.release.xcconfig"; sourceTree = "<group>"; };
+		EE3AC8224DA0FF9FC01D37DA /* Pods-MeongMungI-MeongMungIUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeongMungI-MeongMungIUITests.debug.xcconfig"; path = "Target Support Files/Pods-MeongMungI-MeongMungIUITests/Pods-MeongMungI-MeongMungIUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		FD113FAEF315BD758CFB45E7 /* Pods_MeongMungI_MeongMungIUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MeongMungI_MeongMungIUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -65,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2F4C35F45A97D59B6EB01FF /* Pods_MeongMungI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				090BBE3AACE5D409E7F1948A /* Pods_MeongMungITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8480CF7A3041E3876F6B604C /* Pods_MeongMungI_MeongMungIUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +110,8 @@
 				255A8B7C2D8818F00036D44F /* MeongMungITests */,
 				255A8B862D8818F00036D44F /* MeongMungIUITests */,
 				255A8B612D8818EF0036D44F /* Products */,
+				71AD53AA2783A42D7DD61102 /* Pods */,
+				A0EAB174851A9CFBB1E18658 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +125,29 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		71AD53AA2783A42D7DD61102 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4D6CDA282811A53F6BB65394 /* Pods-MeongMungI.debug.xcconfig */,
+				6186362A2E18BF88383E2626 /* Pods-MeongMungI.release.xcconfig */,
+				EE3AC8224DA0FF9FC01D37DA /* Pods-MeongMungI-MeongMungIUITests.debug.xcconfig */,
+				D8369092D547C1E47DCDA93C /* Pods-MeongMungI-MeongMungIUITests.release.xcconfig */,
+				7EC33F1EE5A949A14B8D7533 /* Pods-MeongMungITests.debug.xcconfig */,
+				29C20B3087203D1128601A71 /* Pods-MeongMungITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		A0EAB174851A9CFBB1E18658 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BAB776368A38F7C637C2B994 /* Pods_MeongMungI.framework */,
+				FD113FAEF315BD758CFB45E7 /* Pods_MeongMungI_MeongMungIUITests.framework */,
+				4BE1BC5433340C6D0F4B3F43 /* Pods_MeongMungITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -112,6 +155,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 255A8B8C2D8818F00036D44F /* Build configuration list for PBXNativeTarget "MeongMungI" */;
 			buildPhases = (
+				41A0D6A2560E258B5F957CFE /* [CP] Check Pods Manifest.lock */,
 				255A8B5C2D8818EF0036D44F /* Sources */,
 				255A8B5D2D8818EF0036D44F /* Frameworks */,
 				255A8B5E2D8818EF0036D44F /* Resources */,
@@ -124,8 +168,6 @@
 				255A8B622D8818EF0036D44F /* MeongMungI */,
 			);
 			name = MeongMungI;
-			packageProductDependencies = (
-			);
 			productName = MeongMungI;
 			productReference = 255A8B602D8818EF0036D44F /* MeongMungI.app */;
 			productType = "com.apple.product-type.application";
@@ -134,9 +176,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 255A8B912D8818F00036D44F /* Build configuration list for PBXNativeTarget "MeongMungITests" */;
 			buildPhases = (
+				E7EC359C5BD60FE7DF66F625 /* [CP] Check Pods Manifest.lock */,
 				255A8B752D8818F00036D44F /* Sources */,
 				255A8B762D8818F00036D44F /* Frameworks */,
 				255A8B772D8818F00036D44F /* Resources */,
+				79C6DE813B41812D09E1A7CD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -147,8 +191,6 @@
 				255A8B7C2D8818F00036D44F /* MeongMungITests */,
 			);
 			name = MeongMungITests;
-			packageProductDependencies = (
-			);
 			productName = MeongMungITests;
 			productReference = 255A8B792D8818F00036D44F /* MeongMungITests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -157,6 +199,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 255A8B942D8818F00036D44F /* Build configuration list for PBXNativeTarget "MeongMungIUITests" */;
 			buildPhases = (
+				083DE9664C13D890F9A8CD20 /* [CP] Check Pods Manifest.lock */,
 				255A8B7F2D8818F00036D44F /* Sources */,
 				255A8B802D8818F00036D44F /* Frameworks */,
 				255A8B812D8818F00036D44F /* Resources */,
@@ -170,8 +213,6 @@
 				255A8B862D8818F00036D44F /* MeongMungIUITests */,
 			);
 			name = MeongMungIUITests;
-			packageProductDependencies = (
-			);
 			productName = MeongMungIUITests;
 			productReference = 255A8B832D8818F00036D44F /* MeongMungIUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -244,6 +285,92 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		083DE9664C13D890F9A8CD20 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MeongMungI-MeongMungIUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		41A0D6A2560E258B5F957CFE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MeongMungI-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		79C6DE813B41812D09E1A7CD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MeongMungITests/Pods-MeongMungITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MeongMungITests/Pods-MeongMungITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MeongMungITests/Pods-MeongMungITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E7EC359C5BD60FE7DF66F625 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MeongMungITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		255A8B5C2D8818EF0036D44F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -284,6 +411,7 @@
 /* Begin XCBuildConfiguration section */
 		255A8B8D2D8818F00036D44F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4D6CDA282811A53F6BB65394 /* Pods-MeongMungI.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -294,9 +422,9 @@
 				INFOPLIST_FILE = MeongMungI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,14 +432,19 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.stitch.MeongMungI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		255A8B8E2D8818F00036D44F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6186362A2E18BF88383E2626 /* Pods-MeongMungI.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -322,9 +455,9 @@
 				INFOPLIST_FILE = MeongMungI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -332,9 +465,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.stitch.MeongMungI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -375,7 +512,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -390,7 +527,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -438,7 +575,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -447,7 +584,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -459,6 +596,7 @@
 		};
 		255A8B922D8818F00036D44F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7EC33F1EE5A949A14B8D7533 /* Pods-MeongMungITests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -478,6 +616,7 @@
 		};
 		255A8B932D8818F00036D44F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 29C20B3087203D1128601A71 /* Pods-MeongMungITests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -497,6 +636,7 @@
 		};
 		255A8B952D8818F00036D44F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE3AC8224DA0FF9FC01D37DA /* Pods-MeongMungI-MeongMungIUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -514,6 +654,7 @@
 		};
 		255A8B962D8818F00036D44F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D8369092D547C1E47DCDA93C /* Pods-MeongMungI-MeongMungIUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
