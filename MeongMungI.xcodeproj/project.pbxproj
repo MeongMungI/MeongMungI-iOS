@@ -48,7 +48,7 @@
 		255A8B8B2D8818F00036D44F /* Exceptions for "MeongMungI" folder in "MeongMungI" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Info.plist,
+				Resource/Info.plist,
 			);
 			target = 255A8B5F2D8818EF0036D44F /* MeongMungI */;
 		};
@@ -419,7 +419,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4VFRVNS33P;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MeongMungI/Info.plist;
+				INFOPLIST_FILE = MeongMungI/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -452,7 +452,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4VFRVNS33P;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MeongMungI/Info.plist;
+				INFOPLIST_FILE = MeongMungI/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
