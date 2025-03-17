@@ -30,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		251BD8832D8860C300D5FF41 /* Then.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Then.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		255A8B602D8818EF0036D44F /* MeongMungI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeongMungI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		255A8B792D8818F00036D44F /* MeongMungITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeongMungITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		255A8B832D8818F00036D44F /* MeongMungIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeongMungIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,6 +142,7 @@
 		A0EAB174851A9CFBB1E18658 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				251BD8832D8860C300D5FF41 /* Then.framework */,
 				BAB776368A38F7C637C2B994 /* Pods_MeongMungI.framework */,
 				FD113FAEF315BD758CFB45E7 /* Pods_MeongMungI_MeongMungIUITests.framework */,
 				4BE1BC5433340C6D0F4B3F43 /* Pods_MeongMungITests.framework */,
@@ -159,6 +161,7 @@
 				255A8B5C2D8818EF0036D44F /* Sources */,
 				255A8B5D2D8818EF0036D44F /* Frameworks */,
 				255A8B5E2D8818EF0036D44F /* Resources */,
+				C67B4F541A0520691D310317 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -180,7 +183,6 @@
 				255A8B752D8818F00036D44F /* Sources */,
 				255A8B762D8818F00036D44F /* Frameworks */,
 				255A8B772D8818F00036D44F /* Resources */,
-				79C6DE813B41812D09E1A7CD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -203,6 +205,7 @@
 				255A8B7F2D8818F00036D44F /* Sources */,
 				255A8B802D8818F00036D44F /* Frameworks */,
 				255A8B812D8818F00036D44F /* Resources */,
+				0EDF28432F5C5AB7CCCCA178 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -241,11 +244,12 @@
 				};
 			};
 			buildConfigurationList = 255A8B5B2D8818EF0036D44F /* Build configuration list for PBXProject "MeongMungI" */;
-			developmentRegion = en;
+			developmentRegion = ko;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = 255A8B572D8818EF0036D44F;
 			minimizedProjectReferenceProxies = 1;
@@ -308,6 +312,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		0EDF28432F5C5AB7CCCCA178 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MeongMungI-MeongMungIUITests/Pods-MeongMungI-MeongMungIUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MeongMungI-MeongMungIUITests/Pods-MeongMungI-MeongMungIUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MeongMungI-MeongMungIUITests/Pods-MeongMungI-MeongMungIUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		41A0D6A2560E258B5F957CFE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -330,21 +351,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		79C6DE813B41812D09E1A7CD /* [CP] Embed Pods Frameworks */ = {
+		C67B4F541A0520691D310317 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MeongMungITests/Pods-MeongMungITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-MeongMungI/Pods-MeongMungI-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MeongMungITests/Pods-MeongMungITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-MeongMungI/Pods-MeongMungI-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MeongMungITests/Pods-MeongMungITests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MeongMungI/Pods-MeongMungI-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E7EC359C5BD60FE7DF66F625 /* [CP] Check Pods Manifest.lock */ = {
@@ -480,6 +501,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -543,6 +565,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
