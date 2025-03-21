@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        configureTabBarItem()
         return true
     }
 
@@ -77,5 +77,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+}
+
+extension AppDelegate {
+    // 탭 바 아이템의 초기 설정
+    private func configureTabBarItem() {
+        // 탭 바 아이템 폰트 설정
+        let normalAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.pretendard(size: 10, family: .Regular)]
+        // 탭 바 아이템 폰트 적용
+        UITabBarItem.appearance().setTitleTextAttributes(normalAttributes, for: .normal)
+    }
 }
 
