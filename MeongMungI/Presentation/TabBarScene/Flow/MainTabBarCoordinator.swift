@@ -33,10 +33,15 @@ extension MainTabBarCoordinator {
     public func start() {
         // 네비게이션 컨트롤러 생성
         let homeNVC = UINavigationController()
+        homeNVC.configureBarAppearnace()
         let petPlaceNVC = UINavigationController()
+        petPlaceNVC.configureBarAppearnace()
         let strollNVC = UINavigationController()
+        strollNVC.configureBarAppearnace()
         let communityNVC = UINavigationController()
+        communityNVC.configureBarAppearnace()
         let myPageNVC = UINavigationController()
+        myPageNVC.configureBarAppearnace()
         
         // 탭 바 아이템 등록
         homeNVC.tabBarItem = UITabBarItem(title: "홈", image: .house, tag: 0)

@@ -33,4 +33,9 @@ extension UIFont {
     static func pretendard(size: CGFloat = 10, family: PretendardFamily = .Medium) -> UIFont {
         return UIFont(name: "Pretendard-\(family)", size: size) ?? UIFont.systemFont(ofSize: size)
     }
+    
+    // 머니그라피 폰트 커스텀
+    static func Moneygraphy(size: CGFloat) -> UIFont {
+        return UIFont(name: "Moneygraphy-Rounded", size: size) ?? UIFont.systemFont(ofSize: size)
+    }
 }
