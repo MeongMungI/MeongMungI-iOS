@@ -16,7 +16,7 @@ public final class StrollHistoryCell: UICollectionViewCell {
     
     private var id: Int = 0
     
-    // 산책 기록에 저장된 메인 이미지로 셀의 배경 이미지
+    // 셀의 배경 이미지는 산책 기록에 저장된 메인 이미지로
     private let backgroundImageView = UIImageView().then {
         $0.contentMode = .scaleAspectFill
         $0.clipsToBounds = true
@@ -29,7 +29,9 @@ public final class StrollHistoryCell: UICollectionViewCell {
         super.init(frame: frame)
         setupUI()
         setupLayout()
+        addShadow(offset: CGSize(width: 5, height: 5), opacity: 0.7, radius: 5, color: UIColor.gray.cgColor)
     }
+    
     
     @available(*, unavailable)
     required init?(coder: NSCoder) {
@@ -56,7 +58,6 @@ extension StrollHistoryCell {
     // 셀 configure
     public func configure(id: Int, image: UIImage) {
         self.id = id
-        // 백그라운드 이미지 변경
         self.backgroundImageView.image = image
     }
 }

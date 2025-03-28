@@ -13,6 +13,11 @@ public final class DecorationView: UICollectionReusableView {
     // reusable ID
     static let ID = "DecorationView"
     
+    private let lineView = UIView().then {
+        $0.backgroundColor = .backgroundColor
+        $0.clipsToBounds = true
+    }
+    
     // init
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,7 +31,13 @@ public final class DecorationView: UICollectionReusableView {
     
     // UI 설정
     private func setupUI() {
-        self.clipsToBounds = true
+        self.addSubview(lineView)
+        
+        lineView.snp.makeConstraints { make in
+            make.leading.trailing.bottom.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.height.equalTo(1)
+        }
     }
     
 }

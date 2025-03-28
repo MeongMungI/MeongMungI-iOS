@@ -8,6 +8,8 @@
 import UIKit
 import Then
 import SnapKit
+import RxSwift
+import RxCocoa
 
 // MARK: - 컬렉션 뷰의 섹션 헤더 뷰
 public final class HeaderView: UICollectionReusableView {
@@ -23,27 +25,31 @@ public final class HeaderView: UICollectionReusableView {
     
     // 타이틀 레이블
     private let titleLabel = UILabel().then {
-        $0.font = UIFont.pretendard(size: 18, family: .SemiBold)
+        $0.font = UIFont.pretendard(size: 16, family: .SemiBold)
         $0.textColor = .mainTextColor
         $0.textAlignment = .left
         $0.numberOfLines = 1
     }
     
     // 전체보기 버튼
-    private let viewAllButton = UIButton(type: .system).then {
+    public let viewAllButton = UIButton(type: .system).then {
         $0.setTitle("전체보기", for: .normal)
         $0.titleLabel?.font = UIFont.pretendard(size: 13, family: .Medium)
         $0.setTitleColor(.mainTextColor, for: .normal)
         $0.isHidden = false
-        $0.isHighlighted = false
     }
     
+    // 전체보기 버튼의 탭 이벤트
+    public var viewAllButtonRelay = PublishRelay<Void>()
+    public var disposeBag = DisposeBag()
+
     // init
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
         setupLayout()
         setPriority()
+        bindUI()
     }
     
     @available(*, unavailable)
@@ -54,6 +60,7 @@ public final class HeaderView: UICollectionReusableView {
     // prepareForReuse
     public override func prepareForReuse() {
         super.prepareForReuse()
+        self.disposeBag = DisposeBag()
         configure(title: "")
     }
 }
@@ -83,9 +90,18 @@ extension HeaderView {
         viewAllButton.setContentCompressionResistancePriority(.required, for: .horizontal)
     }
     
+    private func bindUI() {
+        // 전체보기 버튼의 클릭 이벤트 바인드
+        viewAllButton.rx.tap
+            .bind(to: viewAllButtonRelay)
+            .disposed(by: disposeBag)
+    }
+    
     // Configure
     public func configure(title: String) {
         self.titleLabel.text = title
     }
+    
+
 }
 
