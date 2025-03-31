@@ -52,8 +52,9 @@ public final class HomeView: UIView {
         $0.backgroundColor = .clear
         $0.clipsToBounds = true
         $0.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderView.ID)
-        $0.register(StrollHistoryCell.self, forCellWithReuseIdentifier: StrollHistoryCell.ID)
         $0.register(PetProfileCell.self, forCellWithReuseIdentifier: PetProfileCell.ID)
+        $0.register(MonthlyStrollStatsCell.self, forCellWithReuseIdentifier: MonthlyStrollStatsCell.ID)
+        $0.register(StrollHistoryCell.self, forCellWithReuseIdentifier: StrollHistoryCell.ID)
     }
     
     // init
@@ -85,28 +86,28 @@ public final class HomeView: UIView {
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
             make.centerX.centerY.equalToSuperview()
-            make.height.equalTo(1500)
+            //make.height.equalTo(1500)
         }
     }
 }
 
 // 홈 화면 섹션
 public enum HomeSection: Hashable {
-    // 최근 산책기록 섹션
-    case strollHistory(String)
     // 내 반려동물 목록 섹션
     case myPetList
-    
-    /// 일주일 산책 통계 섹션
-    //case myDogs
-    // case communityHotPost(String) // 실시간 인기글 섹션
+    // 최근 한 달 산책 통계 섹션
+    case monthlyStrollStats
+    // 최근 산책기록 섹션
+    case strollHistory(String)
+    // 실시간 인기글 섹션
+    // case HotPost(String)
 }
 
 // 홈 화면 아이템
 public enum HomeItem: Hashable {
-    case strollHistory(id: Int, image: UIImage)
     case myPetList(Pet)
-    
+    case monthlyStrollStats(Stroll)
+    case strollHistory(id: Int, image: UIImage)
     // 게시글 아이템
     // case hotPost(Post)
 }
@@ -126,15 +127,21 @@ public struct Pet: Hashable {
     let birth: String
 }
 
+public struct Stroll: Hashable {
+    let count: Int
+    let distance: Double
+    let duration: Double
+}
+
 // 임시 게시글 구조체
 public struct Post: Hashable {
-    /// 게시물 제목
+    // 게시물 제목
     let title: String
-    /// 게시물 타입
+    // 게시물 타입
     let type: PostType
-    /// 게시물 좋아요 수
+    // 게시물 좋아요 수
     let like: Int
-    /// 게시물 댓글 수
+    // 게시물 댓글 수
     let comment: Int
     
     enum PostType: String {

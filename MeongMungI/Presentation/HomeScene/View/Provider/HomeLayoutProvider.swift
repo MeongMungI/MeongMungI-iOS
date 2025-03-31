@@ -19,10 +19,12 @@ public struct HomeLayoutProvider {
             guard let homeSection = datasource.sectionIdentifier(for: sectionIndex) else { return nil }
             
             switch homeSection {
-            case .strollHistory(_):
-                return makeStrollHistorySection()
             case .myPetList:
                 return makeMyPetListSection()
+            case .monthlyStrollStats:
+                return makeMonthlyStrollStatsSection()
+            case .strollHistory(_):
+                return makeStrollHistorySection()
             }
         }
         // 레이아웃에 configuration 적용
@@ -30,39 +32,6 @@ public struct HomeLayoutProvider {
         // 레이아웃에 데코레이션 뷰 적용
         layout.register(DecorationView.self, forDecorationViewOfKind: DecorationView.ID)
         return layout
-    }
-    
-    // 최근 산책기록 섹션 레이아웃 생성
-    static func makeStrollHistorySection() -> NSCollectionLayoutSection {
-        // 아이템 설정
-        let itemSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0),
-            heightDimension: .fractionalHeight(1.0)
-        )
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        
-        // 그룹 설정
-        let groupSize = NSCollectionLayoutSize(
-            widthDimension: .absolute(230),
-            heightDimension: .absolute(230)
-        )
-        let group = NSCollectionLayoutGroup.horizontal(
-            layoutSize: groupSize,
-            repeatingSubitem: item,
-            count: 1
-        )
-        
-        // 섹션 설정
-        let section = NSCollectionLayoutSection(group: group)
-        section.interGroupSpacing = 15
-        section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 20, bottom: 5, trailing: 20)
-        section.orthogonalScrollingBehavior = .groupPaging
-        
-        // 헤더 설정
-        let headerItem = makeHeaderItem()
-        section.boundarySupplementaryItems = [headerItem]
-        
-        return section
     }
     
     // 내 강아지 목록 섹션 레이아웃 생성
@@ -98,6 +67,66 @@ public struct HomeLayoutProvider {
         return section
     }
     
+    // 최근 한 달 산책 통계 섹션 레이아웃 생성
+    static func makeMonthlyStrollStatsSection() -> NSCollectionLayoutSection {
+        // 아이템 설정
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .fractionalHeight(1.0)
+        )
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        // 그룹 설정
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .estimated(130)
+        )
+        
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        
+        // 섹션 설정
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 20, bottom: 5, trailing: 20)
+        section.orthogonalScrollingBehavior = .none
+        
+        return section
+    }
+    
+    // 최근 산책기록 섹션 레이아웃 생성
+    static func makeStrollHistorySection() -> NSCollectionLayoutSection {
+        // 아이템 설정
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .fractionalHeight(1.0)
+        )
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        // 그룹 설정
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .absolute(220),
+            heightDimension: .absolute(220)
+        )
+        let group = NSCollectionLayoutGroup.horizontal(
+            layoutSize: groupSize,
+            repeatingSubitem: item,
+            count: 1
+        )
+        
+        // 섹션 설정
+        let section = NSCollectionLayoutSection(group: group)
+        section.interGroupSpacing = 15
+        section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 20, bottom: 5, trailing: 20)
+        section.orthogonalScrollingBehavior = .groupPaging
+        
+        // 헤더 설정
+        let headerItem = makeHeaderItem()
+        section.boundarySupplementaryItems = [headerItem]
+        
+        return section
+    }
+}
+
+extension HomeLayoutProvider {
     // 헤더 아이템 생성
      static func makeHeaderItem() -> NSCollectionLayoutBoundarySupplementaryItem {
          let headerSize = NSCollectionLayoutSize(

@@ -51,13 +51,17 @@ public final class HomeViewController: UIViewController {
     private func setupDiffableDatasource() {
         datasource = UICollectionViewDiffableDataSource<HomeSection, HomeItem>(collectionView: homeView.collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
             switch itemIdentifier {
-            case .strollHistory(id: let id, image: let image):
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StrollHistoryCell.ID, for: indexPath) as? StrollHistoryCell
-                cell?.configure(id: id, image: image)
-                return cell
             case .myPetList(let pet):
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PetProfileCell.ID, for: indexPath) as? PetProfileCell
                 cell?.configure(pet: pet)
+                return cell
+            case .monthlyStrollStats(let monthlyStroll):
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MonthlyStrollStatsCell.ID, for: indexPath) as? MonthlyStrollStatsCell
+                //cell?.configure(monthlyStroll: monthlyStroll)
+                return cell
+            case .strollHistory(id: let id, image: let image):
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StrollHistoryCell.ID, for: indexPath) as? StrollHistoryCell
+                cell?.configure(id: id, image: image)
                 return cell
             }
         })
@@ -104,17 +108,23 @@ public final class HomeViewController: UIViewController {
             Pet(image: .cat9, name: "춘배", breed: "페르시안 친칠라", birth: "2019-12-11"),
             Pet(image: .cat6, name: "하루", breed: "페르시안 친칠라", birth: "2019-12-12"),
         ]
-        
+        // 아이템
         let petItems = pets.map { HomeItem.myPetList($0) }
+        let monthlyStrollItems = [HomeItem.monthlyStrollStats(Stroll(count: 5, distance: 19, duration: 45.16))]
         
-        let strollHistorySection = HomeSection.strollHistory("최근 산책기록 🐕")
+        // 섹션
         let petProfileSection = HomeSection.myPetList
+        let monthlyStrollSection = HomeSection.monthlyStrollStats
+        let strollHistorySection = HomeSection.strollHistory("최근 산책기록 🐕")
+        
+        
         
         // 섹션 등록
-        snapshot.appendSections([petProfileSection, strollHistorySection])
+        snapshot.appendSections([petProfileSection, monthlyStrollSection, strollHistorySection])
         
         // 아이템 등록
         snapshot.appendItems(petItems, toSection: petProfileSection)
+        snapshot.appendItems(monthlyStrollItems, toSection: monthlyStrollSection)
         snapshot.appendItems(items, toSection: strollHistorySection)
         
         
