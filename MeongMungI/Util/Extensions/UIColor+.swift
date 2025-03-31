@@ -23,6 +23,18 @@ extension UIColor {
     static var mainTextColor: UIColor {
         return UIColor(red: 25.0 / 255.0, green: 31.0 / 255.0, blue: 40.0 / 255.0, alpha: 1)
     }
+    
+    // 서브 텍스트 색상
+    static var subTextColor: UIColor {
+        return UIColor(red: 78.0 / 255.0, green: 89.0 / 255.0, blue: 104.0 / 255.0, alpha: 1)
+    }
+    
+    // 서브 텍스트 색상
+    static var tossBackgroundColor: UIColor {
+        return UIColor(red: 242.0 / 255.0, green: 244.0 / 255.0, blue: 246.0 / 255.0, alpha: 1)
+    }
+    
+    
 }
 
 

@@ -45,7 +45,6 @@ public final class PetProfileCell: UICollectionViewCell {
         $0.font = UIFont.pretendard(size: 13, family: .Medium)
         $0.textColor = .mainTextColor
         $0.textAlignment = .center
-        
     }
     
     // init
@@ -58,11 +57,6 @@ public final class PetProfileCell: UICollectionViewCell {
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    override public func layoutSubviews() {
-        super.layoutSubviews()
-        print(stackView.bounds)
     }
     
     public override func prepareForReuse() {
