@@ -55,6 +55,7 @@ public final class HomeView: UIView {
         $0.register(PetProfileCell.self, forCellWithReuseIdentifier: PetProfileCell.ID)
         $0.register(MonthlyStrollStatsCell.self, forCellWithReuseIdentifier: MonthlyStrollStatsCell.ID)
         $0.register(StrollHistoryCell.self, forCellWithReuseIdentifier: StrollHistoryCell.ID)
+        $0.register(HotPostCell.self, forCellWithReuseIdentifier: HotPostCell.ID)
     }
     
     // init
@@ -85,9 +86,8 @@ public final class HomeView: UIView {
         // 컬렉션 뷰의 레이아웃 설정
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
-            make.centerX.centerY.equalToSuperview()
-            //make.height.equalTo(1500)
         }
+
     }
 }
 
@@ -100,7 +100,7 @@ public enum HomeSection: Hashable {
     // 최근 산책기록 섹션
     case strollHistory(String)
     // 실시간 인기글 섹션
-    // case HotPost(String)
+    case hotPost(String)
 }
 
 // 홈 화면 아이템
@@ -108,8 +108,7 @@ public enum HomeItem: Hashable {
     case myPetList(Pet)
     case monthlyStrollStats(Stroll)
     case strollHistory(id: Int, image: UIImage)
-    // 게시글 아이템
-    // case hotPost(Post)
+    case hotPost(Post)
 }
 
 
@@ -135,19 +134,16 @@ public struct Stroll: Hashable {
 
 // 임시 게시글 구조체
 public struct Post: Hashable {
-    // 게시물 제목
+    // 게시글 순위
+    let ranking: Int
+    // 게시글 타입
+    let type: String
+    // 게시글 제목
     let title: String
-    // 게시물 타입
-    let type: PostType
-    // 게시물 좋아요 수
+    // 게시글 좋아요 수
     let like: Int
-    // 게시물 댓글 수
+    // 게시글 댓글 수
     let comment: Int
-    
-    enum PostType: String {
-        case all = "자유 게시글"
-        case hot = "실시간 인기"
-        case stroll = "산책 인증"
-        case info = "정보 공유"
-    }
+    // 썸네일 이미지
+    let thumbnailImage: UIImage?
 }

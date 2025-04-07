@@ -25,6 +25,8 @@ public struct HomeLayoutProvider {
                 return makeMonthlyStrollStatsSection()
             case .strollHistory(_):
                 return makeStrollHistorySection()
+            case .hotPost(_):
+                return makeHotPostSection()
             }
         }
         // 레이아웃에 configuration 적용
@@ -100,7 +102,7 @@ public struct HomeLayoutProvider {
             heightDimension: .fractionalHeight(1.0)
         )
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        
+        // item.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 0, bottom: 2, trailing: 0)
         // 그룹 설정
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .absolute(220),
@@ -115,8 +117,43 @@ public struct HomeLayoutProvider {
         // 섹션 설정
         let section = NSCollectionLayoutSection(group: group)
         section.interGroupSpacing = 15
-        section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 20, bottom: 5, trailing: 20)
-        section.orthogonalScrollingBehavior = .groupPaging
+        section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 20, trailing: 20)
+        section.orthogonalScrollingBehavior = .continuous
+        
+        // 헤더 설정
+        let headerItem = makeHeaderItem()
+        section.boundarySupplementaryItems = [headerItem]
+        
+        return section
+    }
+    
+    // 실시간 인기글 섹션 레이아웃 생성
+    static func makeHotPostSection() -> NSCollectionLayoutSection {
+        // 아이템 설정
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .fractionalHeight(1.0 / 3)
+        )
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20)
+        // 그룹 설정
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .absolute(255)
+        )
+        let group = NSCollectionLayoutGroup.vertical(
+            layoutSize: groupSize,
+            repeatingSubitem: item,
+            count: 3
+        )
+        
+        // 그룹 내부 아이템 간의 간격 설정으로 그룹의 사이즈에 반영됨
+        group.interItemSpacing = .fixed(10)
+        
+        // 섹션 설정
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 20, trailing: 20)
+        section.orthogonalScrollingBehavior = .groupPagingCentered
         
         // 헤더 설정
         let headerItem = makeHeaderItem()
