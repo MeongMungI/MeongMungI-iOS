@@ -98,25 +98,25 @@ public final class MonthlyStrollStatsCell: UICollectionViewCell {
         
         [valueLabel, unitLabel, titleLabel, iconImageView].forEach { panel.addSubview($0) }
         
-        let insetvalue = 15
+        let defaultInset = 15
         
         // valueLabel 제약 조건
         valueLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         valueLabel.snp.makeConstraints { make in
-            make.top.leading.equalToSuperview().inset(insetvalue)
+            make.top.leading.equalToSuperview().inset(defaultInset)
         }
         
         // unitLabel 제약 조건
         unitLabel.snp.makeConstraints { make in
             make.leading.equalTo(valueLabel.snp.trailing).offset(5)
             make.firstBaseline.equalTo(valueLabel.snp.firstBaseline)
-            make.trailing.equalToSuperview().inset(insetvalue)
+            make.trailing.equalToSuperview().inset(defaultInset)
         }
         
         // titleLabel 제약 조건
         titleLabel.snp.makeConstraints { make in
-            make.leading.equalToSuperview().inset(insetvalue)
-            make.bottom.equalToSuperview().inset(insetvalue)
+            make.leading.equalToSuperview().inset(defaultInset)
+            make.bottom.equalToSuperview().inset(defaultInset)
             make.top.greaterThanOrEqualTo(valueLabel.snp.bottom).offset(10)
         }
         
@@ -124,7 +124,7 @@ public final class MonthlyStrollStatsCell: UICollectionViewCell {
         iconImageView.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         iconImageView.snp.makeConstraints { make in
             make.centerY.equalTo(titleLabel.snp.centerY)
-            make.trailing.equalToSuperview().inset(insetvalue)
+            make.trailing.equalToSuperview().inset(defaultInset)
             make.leading.greaterThanOrEqualTo(titleLabel.snp.trailing).offset(10)
         }
         
