@@ -56,6 +56,7 @@ public final class HomeView: UIView {
         $0.register(MonthlyStrollStatsCell.self, forCellWithReuseIdentifier: MonthlyStrollStatsCell.ID)
         $0.register(StrollHistoryCell.self, forCellWithReuseIdentifier: StrollHistoryCell.ID)
         $0.register(HotPostCell.self, forCellWithReuseIdentifier: HotPostCell.ID)
+        $0.register(StrollRankingCell.self, forCellWithReuseIdentifier: StrollRankingCell.ID)
     }
     
     // init
@@ -101,6 +102,8 @@ public enum HomeSection: Hashable {
     case strollHistory(String)
     // 실시간 인기글 섹션
     case hotPost(String)
+    // 산책 랭킹 섹션
+    case strollRanking(String)
 }
 
 // 홈 화면 아이템
@@ -109,6 +112,7 @@ public enum HomeItem: Hashable {
     case monthlyStrollStats(Stroll)
     case strollHistory(id: Int, image: UIImage)
     case hotPost(Post)
+    case strollRanking(StrollRanking)
 }
 
 
@@ -135,7 +139,7 @@ public struct Stroll: Hashable {
 // 임시 게시글 구조체
 public struct Post: Hashable {
     // 게시글 순위
-    let ranking: Int
+    let rank: Int
     // 게시글 타입
     let type: String
     // 게시글 제목
@@ -146,4 +150,14 @@ public struct Post: Hashable {
     let comment: Int
     // 썸네일 이미지
     let thumbnailImage: UIImage?
+}
+
+// 임시 산책 랭킹 구조체
+public struct StrollRanking: Hashable {
+    // 순위
+    let rank: Int
+    // 반려동물
+    let pet: Pet
+    // 누적 산책 거리
+    let TotalDistance: Double
 }
