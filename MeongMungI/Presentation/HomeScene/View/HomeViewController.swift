@@ -44,7 +44,6 @@ public final class HomeViewController: UIViewController {
         // 데이터 소스 초기화 후 컬렉션 뷰에 전달
         let compositonalLayout = HomeLayoutProvider.makeCompositionalLayout(with: datasource)
         homeView.collectionView.setCollectionViewLayout(compositonalLayout, animated: false)
-//        homeView.collectionView.collectionViewLayout = HomeLayoutProvider.makeCompositionalLayout(with: datasource)
         setupHeaderView()
         applySnapshot()
     }
@@ -68,6 +67,10 @@ public final class HomeViewController: UIViewController {
             case .hotPost(let post):
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HotPostCell.ID, for: indexPath) as? HotPostCell
                 cell?.configure(post: post)
+                return cell
+            case .strollRanking(let strollRanking):
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StrollRankingCell.ID, for: indexPath) as? StrollRankingCell
+                cell?.configure(strollRanking: strollRanking)
                 return cell
             }
         })
@@ -95,6 +98,13 @@ public final class HomeViewController: UIViewController {
                         print("실시간 인기글 전체보기 버튼 클릭됨")
                     })
                     .disposed(by: headerView.disposeBag) // 주의! 뷰 컨트롤러의 disposeBag이 아닌 헤더의 disposeBag에 append
+            case .strollRanking(let title):
+                headerView.configure(title: title)
+                headerView.viewAllButtonRelay
+                    .subscribe(onNext: {
+                        print("산책 랭킹 전체보기 버튼 클릭됨")
+                    })
+                    .disposed(by: headerView.disposeBag) // 주의! 뷰 컨트롤러의 disposeBag이 아닌 헤더의 disposeBag에 append
             default:
                 break
             }
@@ -109,11 +119,6 @@ public final class HomeViewController: UIViewController {
             Pet(image: .cat5, name: "슬기", breed: "랙돌", birth: "2021-09-06"),
             Pet(image: .cat1, name: "유미", breed: "페르시안 친칠라", birth: "2019-12-07"),
             Pet(image: .cat6, name: "하루", breed: "페르시안 친칠라", birth: "2019-12-12")
-//            Pet(image: .cat3, name: "수현", breed: "페르시안 친칠라", birth: "2019-12-09"),
-//            Pet(image: .cat8, name: "말왕", breed: "페르시안 친칠라", birth: "2019-12-10"),
-//            Pet(image: .cat4, name: "보리", breed: "페르시안 친칠라", birth: "2019-12-10"),
-//            Pet(image: .cat9, name: "춘배", breed: "페르시안 친칠라", birth: "2019-12-11"),
-//            Pet(image: .cat2, name: "나비", breed: "페르시안 친칠라", birth: "2019-12-08"),
         ]
         
         // 최근 산책 기록 아이템
@@ -125,18 +130,28 @@ public final class HomeViewController: UIViewController {
         ]
         
         let posts: [Post] = [
-            Post(ranking: 1, type: "산책인증", title: "우리집 고양이 츄르를 좋아해~ 우리집 고양이 츄르를 좋아해~", like: 24, comment: 136, thumbnailImage: .cat10),
-            Post(ranking: 2, type: "산책인증", title: "저번 주말 지인하고 벚꽃보러 석촌호수에 다녀왔어요. 산책도 즐거웠어요.", like: 19, comment: 76, thumbnailImage: nil),
-            Post(ranking: 3, type: "산책인증", title: "나만 고양이 없어.", like: 14, comment: 34, thumbnailImage: .cat7),
-            Post(ranking: 4, type: "산책인증", title: "우리 강아지가 너무 귀여워요~", like: 12, comment: 29, thumbnailImage: nil),
-            Post(ranking: 5, type: "산책인증", title: "우리 강아지가 너무 귀여워요~", like: 9, comment: 11, thumbnailImage: nil),
-            Post(ranking: 6, type: "산책인증", title: "우리 강아지가 너무 귀여워요~", like: 4, comment: 0, thumbnailImage: nil),
+            Post(rank: 1, type: "산책인증", title: "우리집 고양이 츄르를 좋아해 우리집 고양이 츄르를 좋아해", like: 24, comment: 136, thumbnailImage: .cat10),
+            Post(rank: 2, type: "산책인증", title: "주말에 지인하고 벚꽃보러 석촌호수에 다녀왔어요. 맛집도 갔어요.", like: 19, comment: 76, thumbnailImage: nil),
+            Post(rank: 3, type: "산책인증", title: "여긴 온종일 비가 왔어", like: 14, comment: 34, thumbnailImage: .cat7),
+            Post(rank: 4, type: "산책인증", title: "우리 강아지가 너무 귀여워요~", like: 12, comment: 29, thumbnailImage: nil),
+            Post(rank: 5, type: "산책인증", title: "우리 강아지가 너무 귀여워요~", like: 9, comment: 11, thumbnailImage: nil),
+            Post(rank: 6, type: "산책인증", title: "우리 강아지가 너무 귀여워요~", like: 4, comment: 0, thumbnailImage: nil),
+        ]
+        
+        let strollRankings: [StrollRanking] = [
+            StrollRanking(rank: 1, pet: Pet(image: .cat3, name: "나비", breed: "페르시안 친칠라", birth: ""), TotalDistance: 98.12),
+            StrollRanking(rank: 2, pet: Pet(image: .cat5, name: "슬기", breed: "랙돌", birth: ""), TotalDistance: 47.21),
+            StrollRanking(rank: 3, pet: Pet(image: .cat1, name: "유미", breed: "랙돌", birth: ""), TotalDistance: 41.9),
+            StrollRanking(rank: 4, pet: Pet(image: .cat6, name: "하루", breed: "페르시안 친칠라", birth: ""), TotalDistance: 26.49),
+            StrollRanking(rank: 5, pet: Pet(image: .cat2, name: "수현", breed: "페르시안 친칠라", birth: ""), TotalDistance: 13.4),
+            StrollRanking(rank: 6, pet: Pet(image: .cat7, name: "코코", breed: "페르시안 친칠라", birth: ""), TotalDistance: 9.1),
         ]
         
         // 아이템 변환
         let petItems = pets.map { HomeItem.myPetList($0) }
         let monthlyStrollItems = [HomeItem.monthlyStrollStats(Stroll(count: 5, distance: 19, duration: 45.16))]
         let hotPostItems = posts.map { HomeItem.hotPost($0) }
+        let strollRankingItems = strollRankings.map { HomeItem.strollRanking($0) }
         
         
         // 섹션
@@ -144,18 +159,18 @@ public final class HomeViewController: UIViewController {
         let monthlyStrollSection = HomeSection.monthlyStrollStats
         let strollHistorySection = HomeSection.strollHistory("최근 산책기록 🐕")
         let hotPostSection = HomeSection.hotPost("실시간 인기글 🔥")
-        
+        let strollRankingSection = HomeSection.strollRanking("산책 랭킹 🏆")
         
         
         // 섹션 등록
-        snapshot.appendSections([petProfileSection, monthlyStrollSection, strollHistorySection, hotPostSection])
+        snapshot.appendSections([petProfileSection, monthlyStrollSection, strollHistorySection, hotPostSection, strollRankingSection])
         
-        // 아이템 등록
+        // 스냅샷에 아이템 등록
         snapshot.appendItems(petItems, toSection: petProfileSection)
         snapshot.appendItems(monthlyStrollItems, toSection: monthlyStrollSection)
         snapshot.appendItems(items, toSection: strollHistorySection)
         snapshot.appendItems(hotPostItems, toSection: hotPostSection)
-        
+        snapshot.appendItems(strollRankingItems, toSection: strollRankingSection)
         
         datasource.apply(snapshot, animatingDifferences: false)
     }

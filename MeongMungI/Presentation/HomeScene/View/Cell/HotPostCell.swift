@@ -14,13 +14,14 @@ public final class HotPostCell: UICollectionViewCell {
     // 셀 아이디
     static let ID = "HotPostCell"
     
-    // 게시글 랭킹 순위
+    // 게시글 순위
     private let rankingLabel = UILabel().then {
         $0.font = UIFont.pretendard(size: 20, family: .Bold)
         $0.numberOfLines = 1
         $0.textColor = .mainTextColor
         $0.clipsToBounds = true
     }
+    
     private lazy var containerStackView = UIStackView(arrangedSubviews: [stackView, thumbnailImageView] ).then {
         $0.axis = .horizontal
         $0.spacing = 10
@@ -52,7 +53,7 @@ public final class HotPostCell: UICollectionViewCell {
     private let titleLabel = UILabel().then {
         $0.font = UIFont.pretendard(size: 15, family: .SemiBold)
         $0.numberOfLines = 1
-        $0.textColor = .subTextColor
+        $0.textColor = .mainTextColor
         $0.clipsToBounds = true
     }
     
@@ -71,6 +72,7 @@ public final class HotPostCell: UICollectionViewCell {
         $0.layer.cornerRadius = 8
     }
     
+    // 구분선
     private let seperateView = UIView().then {
         $0.backgroundColor = .backgroundColor
     }
@@ -87,6 +89,7 @@ public final class HotPostCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // 셀 재사용
     override public func prepareForReuse() {
         super.prepareForReuse()
         self.rankingLabel.text = nil
@@ -145,7 +148,7 @@ extension HotPostCell {
     
     // 셀 configure
     public func configure(post: Post) {
-        self.rankingLabel.text = "\(post.ranking)"
+        self.rankingLabel.text = "\(post.rank)"
         self.typeLabel.text = post.type
         self.titleLabel.text = post.title
         self.likeAndCommentLabel.text = "좋아요 \(post.like)\t댓글 \(post.comment)"

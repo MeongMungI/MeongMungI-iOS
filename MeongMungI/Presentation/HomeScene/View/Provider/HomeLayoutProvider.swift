@@ -27,6 +27,8 @@ public struct HomeLayoutProvider {
                 return makeStrollHistorySection()
             case .hotPost(_):
                 return makeHotPostSection()
+            case .strollRanking(_):
+                return makeStrollRankingSection()
             }
         }
         // 레이아웃에 configuration 적용
@@ -96,26 +98,29 @@ public struct HomeLayoutProvider {
     
     // 최근 산책기록 섹션 레이아웃 생성
     static func makeStrollHistorySection() -> NSCollectionLayoutSection {
-        // 아이템 설정
+        // 아이템 사이즈 설정
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
             heightDimension: .fractionalHeight(1.0)
         )
+        // 아이템
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        // item.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 0, bottom: 2, trailing: 0)
-        // 그룹 설정
+
+        // 그룹 사이즈 설정
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .absolute(220),
             heightDimension: .absolute(220)
         )
+        // 그룹
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: groupSize,
             repeatingSubitem: item,
             count: 1
         )
         
-        // 섹션 설정
+        // 섹션
         let section = NSCollectionLayoutSection(group: group)
+        // 섹션 설정
         section.interGroupSpacing = 15
         section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 20, trailing: 20)
         section.orthogonalScrollingBehavior = .continuous
@@ -152,6 +157,44 @@ public struct HomeLayoutProvider {
         
         // 섹션 설정
         let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 20, trailing: 20)
+        section.orthogonalScrollingBehavior = .groupPagingCentered
+        
+        // 헤더 설정
+        let headerItem = makeHeaderItem()
+        section.boundarySupplementaryItems = [headerItem]
+        
+        return section
+    }
+    
+    // 산책 랭킹 섹션 레이아웃 생성
+    static func makeStrollRankingSection() -> NSCollectionLayoutSection {
+        // 아이템 사이즈 설정
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .fractionalHeight(1.0 / 3)
+        )
+        // 아이템
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20)
+        // 그룹 사이즈 설정
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .absolute(255)
+        )
+        // 그룹
+        let group = NSCollectionLayoutGroup.vertical(
+            layoutSize: groupSize,
+            repeatingSubitem: item,
+            count: 3
+        )
+        
+        // 그룹 내부 아이템 간의 간격 설정으로 그룹의 사이즈에 반영됨
+        group.interItemSpacing = .fixed(10)
+        
+        // 섹션
+        let section = NSCollectionLayoutSection(group: group)
+        // 섹션 설정
         section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 20, trailing: 20)
         section.orthogonalScrollingBehavior = .groupPagingCentered
         
