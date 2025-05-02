@@ -34,10 +34,22 @@ extension UIColor {
         return UIColor(red: 242.0 / 255.0, green: 244.0 / 255.0, blue: 246.0 / 255.0, alpha: 1)
     }
     
+    // 언더라인 뷰 색상
+    static var underlineColor: UIColor {
+        return UIColor(red: 242.0 / 255.0, green: 244.0 / 255.0, blue: 245.0 / 255.0, alpha: 1)
+    }
+    
+    // 레드 색상(주로 경고나 취고 등 메시지에서 사용)
+    static var redColor: UIColor {
+        return UIColor(red: 255.0 / 255.0, green: 42.0 / 255.0, blue: 75.0 / 255.0, alpha: 1)
+    }
+    
     
     static var postTypeBackgorundColor: UIColor {
         return UIColor(red: 229.0 / 255.0, green: 245.0 / 255.0, blue: 233.0 / 255.0, alpha: 1)
     }
+    
+    
     
     
 }
