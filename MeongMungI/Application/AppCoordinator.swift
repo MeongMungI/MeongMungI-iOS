@@ -34,7 +34,7 @@ public final class AppCoordinator: NSObject, Coordinator {
     init(window: UIWindow) {
         // 씬 델리게이트에서 전달된 윈도우 객체
         self.window = window
-        self.navigationController = UINavigationController()
+        self.navigationController = UINavigationController(rootViewController: rootViewController)
     }
 }
 
@@ -43,10 +43,8 @@ extension AppCoordinator {
     public func start() {
         // 루트 뷰 컨트롤러인 로그인 뷰 컨트롤러의 코디네이터로 자신을 설정
         rootViewController.coordinator = self
-        // 라이트 모드만 허용
-        window.overrideUserInterfaceStyle = .light
-        // 루트 뷰 교체
-        window.rootViewController = rootViewController
+        window.overrideUserInterfaceStyle = .light // 라이트 모드만 허용
+        window.rootViewController = navigationController // 루트 뷰 교체
         window.makeKeyAndVisible()
     }
     
@@ -66,4 +64,12 @@ extension AppCoordinator {
         // 루트 뷰 컨트롤러 전환 시 애니메이션 적용
         UIView.transition(with: window, duration: 0.2, options: .transitionCrossDissolve, animations: nil, completion: nil)
     }
+    
+    // 소셜 로그인을 통한 회원가입 후 사용자의 초기 프로필 세팅 화면으로 이동
+    public func transitionToProfileSetupView() {
+        let profileSetupViewController = ProfileSetupViewController()
+        navigationController.pushViewController(profileSetupViewController, animated: true)
+    }
+    
+    
 }
