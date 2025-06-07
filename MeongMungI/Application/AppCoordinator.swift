@@ -35,6 +35,7 @@ public final class AppCoordinator: NSObject, Coordinator {
         // 씬 델리게이트에서 전달된 윈도우 객체
         self.window = window
         self.navigationController = UINavigationController(rootViewController: rootViewController)
+        self.navigationController.configureBarAppearnace()
     }
 }
 
@@ -71,5 +72,9 @@ extension AppCoordinator {
         navigationController.pushViewController(profileSetupViewController, animated: true)
     }
     
+    
+    public func transitionToPetNameInputView() {
+
+    }
     
 }

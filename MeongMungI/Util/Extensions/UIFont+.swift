@@ -9,33 +9,22 @@ import UIKit
 
 // MARK: - UIFont의 확장
 extension UIFont {
-    // 지마켓 산스 폰트 사이즈
-    enum GmarketSansFamily: String {
-        case Light
-        case Medium
-        case Bold
-    }
-    
-    // 프리텐다드 폰트 사이즈
+    // 프리텐다드 폰트
     enum PretendardFamily: String {
-        case Regular
-        case Medium
-        case SemiBold
-        case Bold
+        case regular = "Regular"
+        case medium = "Medium"
+        case semiBold = "SemiBold"
+        case bold = "Bold"
+    }
+
+    // 프리텐다드 폰트
+    static func pretendard(size: CGFloat = 10, family: PretendardFamily = .medium) -> UIFont {
+        return UIFont(name: "Pretendard-\(family.rawValue)", size: size) ?? UIFont.systemFont(ofSize: size)
     }
     
-    // 지마켓 산스 폰트 커스텀
-    static func gmarketSans(size: CGFloat = 10, family: GmarketSansFamily = .Medium) -> UIFont {
-        return UIFont(name: "GmarketSans\(family)", size: size) ?? UIFont.systemFont(ofSize: size)
-    }
-    
-    // 프리텐다드 폰트 커스텀
-    static func pretendard(size: CGFloat = 10, family: PretendardFamily = .Medium) -> UIFont {
-        return UIFont(name: "Pretendard-\(family)", size: size) ?? UIFont.systemFont(ofSize: size)
-    }
-    
-    // 머니그라피 폰트 커스텀
+    // 머니그라피 폰트
     static func Moneygraphy(size: CGFloat) -> UIFont {
         return UIFont(name: "Moneygraphy-Rounded", size: size) ?? UIFont.systemFont(ofSize: size)
     }
+    
 }

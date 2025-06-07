@@ -25,8 +25,8 @@ public final class HeaderView: UICollectionReusableView {
     
     // 타이틀 레이블
     private let titleLabel = UILabel().then {
-        $0.font = UIFont.pretendard(size: 16, family: .SemiBold)
-        $0.textColor = .mainTextColor
+        $0.font = UIFont.pretendard(size: 16, family: .semiBold)
+        $0.textColor = .primaryTextColor
         $0.textAlignment = .left
         $0.numberOfLines = 1
     }
@@ -34,8 +34,8 @@ public final class HeaderView: UICollectionReusableView {
     // 전체보기 버튼
     public let viewAllButton = UIButton(type: .system).then {
         $0.setTitle("전체보기", for: .normal)
-        $0.titleLabel?.font = UIFont.pretendard(size: 13, family: .Medium)
-        $0.setTitleColor(.mainTextColor, for: .normal)
+        $0.titleLabel?.font = UIFont.pretendard(size: 13, family: .medium)
+        $0.setTitleColor(.primaryTextColor, for: .normal)
         $0.isHidden = false
     }
     

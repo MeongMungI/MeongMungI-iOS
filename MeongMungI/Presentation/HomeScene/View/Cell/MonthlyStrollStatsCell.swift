@@ -68,7 +68,7 @@ public final class MonthlyStrollStatsCell: UICollectionViewCell {
         let valueLabel = UILabel().then {
             $0.text = valueText
             $0.numberOfLines = 1
-            $0.font = UIFont.pretendard(size: 26, family: .Medium)
+            $0.font = .pretendard(size: 26, family: .medium)
             $0.textColor = #colorLiteral(red: 0.1254901961, green: 0.168627451, blue: 0.2392156863, alpha: 1)
             $0.textAlignment = .left
         }
@@ -76,7 +76,7 @@ public final class MonthlyStrollStatsCell: UICollectionViewCell {
         let unitLabel = UILabel().then {
             $0.text = unitText
             $0.numberOfLines = 1
-            $0.font = UIFont.pretendard(size: 13, family: .Medium)
+            $0.font = .pretendard(size: 13, family: .medium)
             $0.textColor = #colorLiteral(red: 0.2666666667, green: 0.3411764706, blue: 0.4235294118, alpha: 1)
             $0.textAlignment = .left
         }
@@ -84,7 +84,7 @@ public final class MonthlyStrollStatsCell: UICollectionViewCell {
         let titleLabel = UILabel().then {
             $0.text = titleText
             $0.numberOfLines = 2
-            $0.font = UIFont.pretendard(size: 13, family: .Medium)
+            $0.font = .pretendard(size: 13, family: .medium)
             $0.textColor = #colorLiteral(red: 0.2666666667, green: 0.3411764706, blue: 0.4235294118, alpha: 1)
             $0.textAlignment = .left
         }

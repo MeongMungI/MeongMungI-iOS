@@ -19,23 +19,23 @@ public final class ProfileSetupView: UIView {
         $0.text = "멍뭉이에서 사용할\n닉네임을 설정해 주세요"
         $0.setLineSpacing(spacing: 5)
         $0.numberOfLines = 2
-        $0.font = UIFont.pretendard(size: 23, family: .SemiBold)
-        $0.textColor = .mainTextColor
+        $0.font = .pretendard(size: 23, family: .bold)
+        $0.textColor = .primaryTextColor
     }
     
     // 닉네임 레이블
     private let nicknameLabel = UILabel().then {
         $0.text = "닉네임"
         $0.numberOfLines = 1
-        $0.font = UIFont.pretendard(size: 14, family: .Medium)
-        $0.textColor = .mainTextColor
+        $0.font = .pretendard(size: 14, family: .medium)
+        $0.textColor = .primaryTextColor
     }
     
     // 닉네임 텍스트 필드
     private let nicknameTextField = UITextField().then {
         $0.placeholder = "닉네임을 입력해 주세요"
-        $0.font = UIFont.pretendard(size: 20, family: .Medium)
-        $0.textColor = .mainTextColor
+        $0.font = .pretendard(size: 20, family: .medium)
+        $0.textColor = .primaryTextColor
         $0.clipsToBounds = true
         $0.autocapitalizationType = .none
         $0.autocorrectionType = .no
@@ -53,7 +53,7 @@ public final class ProfileSetupView: UIView {
     private let nicknameRegexResultLabel = UILabel().then {
         $0.text = "2~10자, 한글·영문·숫자만 입력해 주세요"
         $0.numberOfLines = 1
-        $0.font = UIFont.pretendard(size: 14, family: .Medium)
+        $0.font = .pretendard(size: 14, family: .medium)
         $0.textColor = .redColor
         $0.isHidden = true
     }
@@ -61,7 +61,7 @@ public final class ProfileSetupView: UIView {
     // 확인 버튼
     public let confirmButton = UIButton(type: .custom).then {
         $0.setTitle("확인", for: .normal)
-        $0.titleLabel?.font = UIFont.pretendard(size: 18, family: .SemiBold)
+        $0.titleLabel?.font = .pretendard(size: 18, family: .bold)
         $0.setTitleColor(.white, for: .normal)
         $0.backgroundColor = .mainColor
         $0.layer.cornerRadius = buttonCornerRadius
