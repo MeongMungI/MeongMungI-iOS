@@ -10,15 +10,20 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
-    // 가장 상위에 존재하는 AppCoordinator
-    var appCoordinator: AppCoordinator?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
+        
         self.window = window
-        appCoordinator = AppCoordinator(window: window)
-        appCoordinator?.start()
+
+        let LoginViewController = LoginViewController()
+        let navigationController = UINavigationController(rootViewController: LoginViewController)
+        navigationController.configureBarAppearnace()
+        
+        window.overrideUserInterfaceStyle = .light // 라이트 모드만 허용
+        window.rootViewController = navigationController // 루트 뷰 교체
+        window.makeKeyAndVisible()
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {

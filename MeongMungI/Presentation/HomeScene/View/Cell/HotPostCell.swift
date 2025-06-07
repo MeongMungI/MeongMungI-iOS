@@ -16,9 +16,9 @@ public final class HotPostCell: UICollectionViewCell {
     
     // 게시글 순위
     private let rankingLabel = UILabel().then {
-        $0.font = UIFont.pretendard(size: 20, family: .Bold)
+        $0.font = .pretendard(size: 20, family: .bold)
         $0.numberOfLines = 1
-        $0.textColor = .mainTextColor
+        $0.textColor = .primaryTextColor
         $0.clipsToBounds = true
     }
     
@@ -43,25 +43,26 @@ public final class HotPostCell: UICollectionViewCell {
     
     // 게시글 타입명
     private let typeLabel = UILabel().then {
-        $0.font = UIFont.pretendard(size: 11, family: .Medium)
+        $0.font = .pretendard(size: 11, family: .medium)
         $0.numberOfLines = 1
-        $0.textColor = .subTextColor
+        $0.textColor = .secondaryTextColor
         $0.clipsToBounds = true
     }
     
     // 게시글 제목
     private let titleLabel = UILabel().then {
-        $0.font = UIFont.pretendard(size: 15, family: .SemiBold)
+        $0.font = .pretendard(size: 15, family: .semiBold)
         $0.numberOfLines = 1
-        $0.textColor = .mainTextColor
+        $0.textColor = .primaryTextColor
         $0.clipsToBounds = true
     }
     
     // 게시글 좋아요 및 댓글
     private let likeAndCommentLabel = UILabel().then {
-        $0.font = UIFont.pretendard(size: 11, family: .Medium)
+        $0.font = .pretendard(size: 11, family: .medium)
+
         $0.numberOfLines = 1
-        $0.textColor = .subTextColor
+        $0.textColor = .secondaryTextColor
         $0.clipsToBounds = true
     }
     

@@ -42,8 +42,8 @@ public final class PetProfileCell: UICollectionViewCell {
     private let nameLabel = UILabel().then {
         $0.text = "멍뭉이"
         $0.numberOfLines = 1
-        $0.font = UIFont.pretendard(size: 13, family: .Medium)
-        $0.textColor = .mainTextColor
+        $0.font = .pretendard(size: 13, family: .medium)
+        $0.textColor = .primaryTextColor
         $0.textAlignment = .center
     }
     

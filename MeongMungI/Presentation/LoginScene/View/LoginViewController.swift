@@ -37,7 +37,7 @@ public final class LoginViewController: UIViewController {
         self.navigationItem.backBarButtonItem = backBarButtonItem
     }
     
-    // 카카오 소셜 로그인 버튼 클릭 이벤트
+    // MARK: - 카카오 소셜 로그인 버튼 클릭 이벤트
     private func kakaoLoginButtontapped() {
         loginView.kakaoLoginButton.rx.tap
             .withUnretained(self)
@@ -47,14 +47,14 @@ public final class LoginViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    // 애플 소셜 로그인 버튼 클릭 이벤트
+    // MARK: - 애플 소셜 로그인 버튼 클릭 이벤트
     private func appleLoginButtonTapped() {
         loginView.appleLoginButton.rx
             .controlEvent(.touchUpInside)
             .withUnretained(self)
-            .throttle(.microseconds(500), scheduler: MainScheduler.instance)
             .subscribe(onNext: { owner, _ in
-                owner.coordinator?.transitionToProfileSetupView() // 코디네이터에 화면전환 요청
+                let petProfileBasicInputVC = PetProfileBasicInputViewController()
+                owner.navigationController?.pushViewController(petProfileBasicInputVC, animated: true)
             })
             .disposed(by: disposeBag)
     }

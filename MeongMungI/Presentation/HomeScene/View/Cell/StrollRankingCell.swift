@@ -16,9 +16,9 @@ public final class StrollRankingCell: UICollectionViewCell {
     
     // 산책 랭킹 정보
     private let rankingLabel = UILabel().then {
-        $0.font = UIFont.pretendard(size: 14, family: .Bold)
+        $0.font = .pretendard(size: 14, family: .bold)
         $0.numberOfLines = 1
-        $0.textColor = .mainTextColor
+        $0.textColor = .primaryTextColor
         $0.clipsToBounds = true
     }
     
@@ -38,25 +38,25 @@ public final class StrollRankingCell: UICollectionViewCell {
     
     // 반려동물 이름
     private let petNameLabel = UILabel().then {
-        $0.font = UIFont.pretendard(size: 15, family: .SemiBold)
+        $0.font = .pretendard(size: 15, family: .semiBold)
         $0.numberOfLines = 1
-        $0.textColor = .mainTextColor
+        $0.textColor = .primaryTextColor
         $0.clipsToBounds = true
     }
     
     // 반려동물 종류(견종)
     private let petBreedLabel = UILabel().then {
-        $0.font = UIFont.pretendard(size: 11, family: .Medium)
+        $0.font = .pretendard(size: 11, family: .medium)
         $0.numberOfLines = 1
-        $0.textColor = .subTextColor
+        $0.textColor = .secondaryTextColor
         $0.clipsToBounds = true
     }
     
     // 총 산책 거리
     private let totalStrollDistanceLabel = UILabel().then {
-        $0.font = UIFont.pretendard(size: 17, family: .SemiBold)
+        $0.font = .pretendard(size: 17, family: .semiBold)
         $0.numberOfLines = 1
-        $0.textColor = .mainTextColor
+        $0.textColor = .primaryTextColor
         $0.clipsToBounds = true
     }
     
@@ -158,10 +158,10 @@ extension StrollRankingCell {
         let attributedText = NSMutableAttributedString(string: completeString)
         // 전체 문자열에 우선 적용
         let fullRange = NSRange(location: 0, length: completeString.count)
-        attributedText.addAttribute(.font, value: UIFont.pretendard(size: 18, family: .SemiBold), range: fullRange)
+        attributedText.addAttribute(.font, value: UIFont.pretendard(size: 18, family: .medium), range: fullRange)
         // "Km" 부분만 더 작은 폰트로 변경
         let unitRange = NSRange(location: numberString.count, length: unitString.count)
-        attributedText.addAttribute(.font, value: UIFont.pretendard(size: 11, family: .Medium), range: unitRange)
+        attributedText.addAttribute(.font, value: UIFont.pretendard(size: 11, family: .regular), range: unitRange)
         
         return attributedText
     }

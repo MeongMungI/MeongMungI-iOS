@@ -83,7 +83,7 @@ extension AppDelegate {
     // 탭 바 아이템의 초기 설정
     private func configureTabBarItem() {
         // 탭 바 아이템 폰트 설정
-        let normalAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.pretendard(size: 10, family: .Regular)]
+        let normalAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.pretendard(size: 10, family: .regular)]
         // 탭 바 아이템 폰트 적용
         UITabBarItem.appearance().setTitleTextAttributes(normalAttributes, for: .normal)
     }

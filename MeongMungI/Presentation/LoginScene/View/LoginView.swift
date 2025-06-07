@@ -28,7 +28,7 @@ public final class LoginView: UIView {
         $0.clipsToBounds = true
         $0.layer.cornerRadius = buttonCornerRadius
         // 버튼을 클릭했을 때 깜빡이는 효과 제거
-        $0.adjustsImageWhenHighlighted = false
+        //$0.adjustsImageWhenHighlighted = false
     }
     
     // 애플 로그인 버튼
