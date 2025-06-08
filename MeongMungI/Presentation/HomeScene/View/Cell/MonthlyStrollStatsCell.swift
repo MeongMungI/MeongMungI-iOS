@@ -60,7 +60,7 @@ public final class MonthlyStrollStatsCell: UICollectionViewCell {
     // 헬퍼 메서드: 통계 패널 생성 (패널과 valueLabel 레퍼런스를 함께 반환)
     private func createStatsPanel(valueText: String, unitText: String, titleText: String, iconSystemName: String) -> (view: UIView, valueLabel: UILabel) {
         let panel = UIView().then {
-            $0.backgroundColor = .tossBackgroundColor
+            $0.backgroundColor = .backgroundColor
             $0.layer.cornerRadius = MonthlyStrollStatsCell.panelCornerRadius
             $0.clipsToBounds = true
         }
