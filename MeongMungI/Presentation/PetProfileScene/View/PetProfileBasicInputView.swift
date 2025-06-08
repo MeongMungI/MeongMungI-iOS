@@ -39,10 +39,10 @@ public final class PetProfileBasicInputView: UIView {
     }
     
     // 인포 레이블
-    public let infoLabel = UILabel().then {
+    private let infoLabel = UILabel().then {
         $0.text = "반려견을 알려주세요"
         $0.numberOfLines = 1
-        $0.font = .pretendard(size: 24, family: .semiBold)
+        $0.font = .pretendard(size: 23, family: .semiBold)
         $0.textColor = .primaryTextColor
     }
     
