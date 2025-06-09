@@ -22,7 +22,7 @@ public final class PetProfileBasicInputView: UIView {
     // 스택 뷰
     private lazy var stackView = UIStackView(
         arrangedSubviews: [inputProgressView, infoLabel, nameContainerView, breedContainerView, birthContainerView, genderContainerView]).then {
-        $0.layoutMargins = UIEdgeInsets(top: 20, left: 20, bottom: 0, right: 20)
+        $0.layoutMargins = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
         $0.isLayoutMarginsRelativeArrangement = true
         $0.axis = .vertical
         $0.spacing = 40
@@ -134,7 +134,7 @@ public final class PetProfileBasicInputView: UIView {
     
     // 견종 텍스트 필드(편집 불가능하고 견종을 선택할 수 있는 화면으로 이동)
     public let birthSelectionField = UITextField().then {
-        $0.placeholder = "2025 / 05 / 01"
+        $0.placeholder = "2025년 01월 01일"
         $0.font = .pretendard(size: 14, family: .medium)
         $0.textColor = .primaryTextColor
         // 커서 색상
