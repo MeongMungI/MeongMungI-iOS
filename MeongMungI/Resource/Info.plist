@@ -4,9 +4,6 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>SCDreamBold.otf</string>
-		<string>SCDreamMedium.otf</string>
-		<string>SCDreamRegular.otf</string>
 		<string>Moneygraphy-Rounded.otf</string>
 		<string>Pretendard-Regular.otf</string>
 		<string>Pretendard-Medium.otf</string>

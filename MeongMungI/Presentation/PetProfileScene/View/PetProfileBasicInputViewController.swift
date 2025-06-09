@@ -27,6 +27,7 @@ public final class PetProfileBasicInputViewController: UIViewController {
         setupNavigation()
         setupDelegate()
         hideKeyboardWhenTappedAround()
+        
     }
     
     // MARK: - 네비게이션 설정
@@ -42,15 +43,6 @@ public final class PetProfileBasicInputViewController: UIViewController {
         self.petProfileBasicInputView.birthSelectionField.delegate = self
     }
     
-    // MARK: - "견종을 선택해 주세요" 클릭 이벤트 -> 견종을 선택하는 화면으로 이동
-    private func navigateToBreedSelection() {
-        let breedSelectionViewController = BreedSelectionViewController()
-        breedSelectionViewController.didSelectBreed = { [weak self] selectedBreed in
-            self?.petProfileBasicInputView.breedSelectionField.text = selectedBreed
-        }
-        navigationController?.pushViewController(breedSelectionViewController, animated: true)
-    }
-    
 }
 
 // MARK: - 텍스트필드 델리게이트 익스텐션
@@ -60,10 +52,49 @@ extension PetProfileBasicInputViewController: UITextFieldDelegate {
             navigateToBreedSelection()
             return false
         } else if textField == petProfileBasicInputView.birthSelectionField {
-            print("생년월일 필드 입력 감지")
+            presentToBirthSelection()
             return false
         }
         
         return true
+    }
+}
+
+// MARK: - 화면 전환 익스텐션
+extension PetProfileBasicInputViewController {
+    // MARK: - 견종 선택 클릭 이벤트 -> 견종을 선택하는 화면으로 이동
+    private func navigateToBreedSelection() {
+        let breedSelectionViewController = BreedSelectionViewController()
+        
+        // 클로저로부터 전달된 견종을 텍스트 필드에 설정
+        breedSelectionViewController.didSelectBreed = { [weak self] selectedBreed in
+            self?.petProfileBasicInputView.breedSelectionField.text = selectedBreed
+        }
+        
+        navigationController?.pushViewController(breedSelectionViewController, animated: true)
+    }
+    
+    // MARK: - 생년월일 선택 클릭 이벤트 -> 생년월일을 선택하는 화면으로 이동
+    private func presentToBirthSelection() {
+        let birthSelectionViewController = BirthSelectionViewController()
+        birthSelectionViewController.modalPresentationStyle = .pageSheet
+        
+        if let sheet = birthSelectionViewController.sheetPresentationController {
+            // 커스텀 detent
+            let small = UISheetPresentationController.Detent.custom(identifier: .init("small")) { _ in return 330 }
+            sheet.detents = [small]
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+            sheet.preferredCornerRadius = 20
+            // 손잡이 숨기기
+            sheet.prefersGrabberVisible = false
+        }
+        
+        // 클로저로부터 전달된 생년월일을 텍스트 필드에 할당
+        birthSelectionViewController.didSelectBirth = { [weak self] selectedDate in
+            print("date picker send \(selectedDate)")
+            self?.petProfileBasicInputView.birthSelectionField.text = selectedDate
+        }
+        
+        present(birthSelectionViewController, animated: true)
     }
 }
