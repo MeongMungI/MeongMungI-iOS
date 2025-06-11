@@ -9,6 +9,7 @@ import UIKit
 import Then
 import SnapKit
 
+// MARK: - 사용자가 반려동물의 견종을 선택하기 위한 뷰
 public final class BreedSelectionView: UIView {
     
     // 메인 인포 레이블

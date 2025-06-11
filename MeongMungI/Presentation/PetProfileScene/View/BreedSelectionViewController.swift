@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-// MARK: - 사용자가 자신의 반려동물의 견종을 선택하기 위한 뷰 컨트롤러
+// MARK: - 사용자가 반려동물의 견종을 선택하기 위한 뷰 컨트롤러
 public final class BreedSelectionViewController: UIViewController {
     
     private let breedSelectionView = BreedSelectionView()
