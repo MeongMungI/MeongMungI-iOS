@@ -9,11 +9,12 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-// MARK: - 사용자가 자신의 반려동물 정보를 입력하기 위한 뷰 컨트롤러
+// MARK: - 사용자가 반려동물의 기본 프로필을 입력하기 위한 뷰 컨트롤러
 public final class PetProfileBasicInputViewController: UIViewController {
     
     private let petProfileBasicInputView = PetProfileBasicInputView()
     
+    // 성별 선택 릴레이
     private let isMaleSelectedRelay = PublishRelay<Bool>()
     
     private let disposeBag = DisposeBag()
@@ -30,7 +31,14 @@ public final class PetProfileBasicInputViewController: UIViewController {
         setupDelegate()
         hideKeyboardWhenTappedAround()
         bindGenderButtons()
-        
+        navigateToDetailInput()
+    }
+    
+    // MARK: - viewDidAppear
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // 입력 진행상태 바 애니메이션 설정
+        self.petProfileBasicInputView.inputProgressView.setProgress(0.35, animated: true)
     }
     
     // MARK: - 네비게이션 설정
@@ -54,7 +62,7 @@ public final class PetProfileBasicInputViewController: UIViewController {
             .bind(to: isMaleSelectedRelay)
             .disposed(by: disposeBag)
         
-        // 남아 버튼의 클릭은 false
+        // 여아 버튼의 클릭은 false
         petProfileBasicInputView.femaleSelectionButton.rx.tap
             .map { false }
             .bind(to: isMaleSelectedRelay)
@@ -127,5 +135,16 @@ extension PetProfileBasicInputViewController {
         }
         
         present(birthSelectionViewController, animated: true)
+    }
+    
+    // MARK: - 반려동물의 기본 프로필 입력화면에서 다음 버튼 클릭 -> 반려동물의 상세 프로필 입력화면으로 이동
+    private func navigateToDetailInput() {
+        self.petProfileBasicInputView.nextButton.rx.tap
+            .withUnretained(self)
+            .subscribe(onNext: { owner, _ in
+                let petProfileDetailInputViewController = PetProfileDetailInputViewController()
+                owner.navigationController?.pushViewController(petProfileDetailInputViewController, animated: false)
+            })
+            .disposed(by: disposeBag)
     }
 }

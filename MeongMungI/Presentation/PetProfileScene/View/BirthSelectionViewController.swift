@@ -9,6 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+// MARK: - 사용자가 반려동물의 생년월일을 입력하기 위한 뷰 컨트롤러
 public final class BirthSelectionViewController: UIViewController {
     
     private let birthSelectionView = BirthSelectionView()

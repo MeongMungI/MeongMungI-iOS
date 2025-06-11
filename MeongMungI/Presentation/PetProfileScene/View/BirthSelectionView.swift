@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Then
 
-// MARK: - 반려동물의 생년월일을 입력하기 위한 뷰
+// MARK: - 사용자가 반려동물의 생년월일을 입력하기 위한 뷰
 public final class BirthSelectionView: UIView {
     // 생년월일 선택 데이트 피커
     public let datePicker = UIDatePicker().then {

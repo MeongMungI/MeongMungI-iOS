@@ -9,7 +9,7 @@ import UIKit
 import Then
 import SnapKit
 
-// MARK: - 사용자가 자신의 반려동물을 등록하기 위한 1차 입력화면
+// MARK: - 사용자가 반려동물의 기본 프로필을 입력하기 위한 뷰
 public final class PetProfileBasicInputView: UIView {
     
     // 스크롤 뷰
@@ -30,10 +30,10 @@ public final class PetProfileBasicInputView: UIView {
     }
     
     // 반려견 정보 입력 진행 상태 바
-    private var inputProgressView = UIProgressView(progressViewStyle: .default).then {
+    public var inputProgressView = UIProgressView(progressViewStyle: .default).then {
         $0.trackTintColor = #colorLiteral(red: 0.9147436619, green: 0.9277587533, blue: 0.9341855645, alpha: 1)
         $0.progressTintColor = .mainColor
-        $0.progress = 0.35
+        $0.progress = 0
         $0.layer.cornerRadius = 4
         $0.clipsToBounds = true
     }
@@ -46,7 +46,7 @@ public final class PetProfileBasicInputView: UIView {
         $0.textColor = .primaryTextColor
     }
     
-    // MARK: - 이름
+    // MARK: - 이름 필드
     // 이름 컨테이너 뷰
     private let nameContainerView = UIView()
     
@@ -65,7 +65,7 @@ public final class PetProfileBasicInputView: UIView {
         $0.layer.borderColor = UIColor.borderColor.cgColor
     }
     
-    // 이름 텍스트 필드(편집 불가능하고 견종을 선택할 수 있는 화면으로 이동)
+    // 이름 텍스트 필드
     public let nameSelectionField = UITextField().then {
         $0.placeholder = "이름을 입력해 주세요"
         $0.font = .pretendard(size: 15, family: .medium)
@@ -76,7 +76,7 @@ public final class PetProfileBasicInputView: UIView {
         $0.contentVerticalAlignment = .center
     }
     
-    // MARK: - 견종
+    // MARK: - 견종 필드
     // 견종 컨테이너 뷰
     private let breedContainerView = UIView()
     
@@ -95,7 +95,7 @@ public final class PetProfileBasicInputView: UIView {
         $0.layer.borderColor = UIColor.borderColor.cgColor
     }
     
-    // 견종 텍스트 필드(편집 불가능하고 견종을 선택할 수 있는 화면으로 이동)
+    // 견종 텍스트 필드
     public let breedSelectionField = UITextField().then {
         $0.placeholder = "견종을 선택해 주세요"
         $0.font = .pretendard(size: 15, family: .medium)
@@ -113,18 +113,18 @@ public final class PetProfileBasicInputView: UIView {
         $0.rightViewMode = .always
     }
     
-    // MARK: - 생년월일
+    // MARK: - 생년월일 필드
     // 생년월일 컨테이너 뷰
     private let birthContainerView = UIView()
     
-    // 견종 제목 레이블
+    // 생년월일 제목 레이블
     private let birthTitleLabel = UILabel().then {
         $0.text = "생년월일"
         $0.font = .pretendard(size: 14, family: .medium)
         $0.textColor = .secondaryTextColor
     }
     
-    // 견종 텍스트 필드를 감싸고 있는 컨테이너 뷰
+    // 생년월일 텍스트 필드를 감싸고 있는 컨테이너 뷰
     private let birthSelectionContainerView = UIView().then {
         $0.backgroundColor = .textFieldBackgroundColor
         $0.layer.cornerRadius = 15
@@ -132,7 +132,7 @@ public final class PetProfileBasicInputView: UIView {
         $0.layer.borderColor = UIColor.borderColor.cgColor
     }
     
-    // 견종 텍스트 필드(편집 불가능하고 견종을 선택할 수 있는 화면으로 이동)
+    // 생년월일 텍스트 필드
     public let birthSelectionField = UITextField().then {
         $0.placeholder = "2025년 01월 01일"
         $0.font = .pretendard(size: 15, family: .medium)
@@ -150,7 +150,7 @@ public final class PetProfileBasicInputView: UIView {
         $0.rightViewMode = .always
     }
     
-    // MARK: - 성별
+    // MARK: - 성별 필드
     // 성별 컨테이너 뷰
     private let genderContainerView = UIView()
     
@@ -164,6 +164,7 @@ public final class PetProfileBasicInputView: UIView {
     // 성별 텍스트 필드를 감싸고 있는 컨테이너 뷰
     private let genderSelectionContainerView = UIView()
     
+    // 남아 선택 버튼
     public let maleSelectionButton = UIButton(type: .custom).then {
         $0.setTitle("남아", for: .normal)
         $0.titleLabel?.font = .pretendard(size: 15, family: .medium)
@@ -175,6 +176,7 @@ public final class PetProfileBasicInputView: UIView {
         $0.clipsToBounds = true
     }
     
+    // 여아 선택 버튼
     public let femaleSelectionButton = UIButton(type: .custom).then {
         $0.setTitle("여아", for: .normal)
         $0.titleLabel?.font = .pretendard(size: 15, family: .medium)
@@ -204,7 +206,7 @@ public final class PetProfileBasicInputView: UIView {
         setupLayout()
     }
 
-    
+    // MARK: - required init
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -346,6 +348,7 @@ public final class PetProfileBasicInputView: UIView {
 }
 
 extension PetProfileBasicInputView {
+    // MARK: - 버튼을 선택했을 때 적용할 스타일
     public func applySelectedStyle(to button: UIButton) {
         button.backgroundColor = .buttonSelectedColor
         button.layer.borderColor = UIColor.mainColor.cgColor
@@ -353,6 +356,7 @@ extension PetProfileBasicInputView {
         button.setTitleColor(.mainColor, for: .normal)
     }
     
+    // MARK: - 버튼을 선택하지 않았을 때 적용할 스타일
     public func applyDeselectedStyle(to button: UIButton) {
         button.backgroundColor = .textFieldBackgroundColor
         button.layer.borderColor = UIColor.borderColor.cgColor
