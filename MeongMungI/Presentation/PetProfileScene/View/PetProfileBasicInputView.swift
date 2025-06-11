@@ -68,7 +68,7 @@ public final class PetProfileBasicInputView: UIView {
     // 이름 텍스트 필드(편집 불가능하고 견종을 선택할 수 있는 화면으로 이동)
     public let nameSelectionField = UITextField().then {
         $0.placeholder = "이름을 입력해 주세요"
-        $0.font = .pretendard(size: 14, family: .medium)
+        $0.font = .pretendard(size: 15, family: .medium)
         $0.textColor = .primaryTextColor
         $0.clearButtonMode = .whileEditing
         $0.autocapitalizationType = .none
@@ -98,7 +98,7 @@ public final class PetProfileBasicInputView: UIView {
     // 견종 텍스트 필드(편집 불가능하고 견종을 선택할 수 있는 화면으로 이동)
     public let breedSelectionField = UITextField().then {
         $0.placeholder = "견종을 선택해 주세요"
-        $0.font = .pretendard(size: 14, family: .medium)
+        $0.font = .pretendard(size: 15, family: .medium)
         $0.textColor = .primaryTextColor
         // 커서 색상
         $0.tintColor = .clear
@@ -135,7 +135,7 @@ public final class PetProfileBasicInputView: UIView {
     // 견종 텍스트 필드(편집 불가능하고 견종을 선택할 수 있는 화면으로 이동)
     public let birthSelectionField = UITextField().then {
         $0.placeholder = "2025년 01월 01일"
-        $0.font = .pretendard(size: 14, family: .medium)
+        $0.font = .pretendard(size: 15, family: .medium)
         $0.textColor = .primaryTextColor
         // 커서 색상
         $0.tintColor = .clear
@@ -166,7 +166,7 @@ public final class PetProfileBasicInputView: UIView {
     
     public let maleSelectionButton = UIButton(type: .custom).then {
         $0.setTitle("남아", for: .normal)
-        $0.titleLabel?.font = .pretendard(size: 14, family: .medium)
+        $0.titleLabel?.font = .pretendard(size: 15, family: .medium)
         $0.setTitleColor(.secondaryTextColor, for: .normal)
         $0.backgroundColor = .textFieldBackgroundColor
         $0.layer.cornerRadius = 15
@@ -177,7 +177,7 @@ public final class PetProfileBasicInputView: UIView {
     
     public let femaleSelectionButton = UIButton(type: .custom).then {
         $0.setTitle("여아", for: .normal)
-        $0.titleLabel?.font = .pretendard(size: 14, family: .medium)
+        $0.titleLabel?.font = .pretendard(size: 15, family: .medium)
         $0.setTitleColor(.secondaryTextColor, for: .normal)
         $0.backgroundColor = .textFieldBackgroundColor
         $0.layer.cornerRadius = 15
@@ -191,7 +191,7 @@ public final class PetProfileBasicInputView: UIView {
         $0.setTitle("다음", for: .normal)
         $0.titleLabel?.font = .pretendard(size: 18, family: .medium)
         $0.setTitleColor(.white, for: .normal)
-        $0.backgroundColor = .mainColor
+        $0.backgroundColor = .buttonEableColor
         $0.layer.cornerRadius = 17
         $0.clipsToBounds = true
     }
@@ -343,6 +343,21 @@ public final class PetProfileBasicInputView: UIView {
             make.height.equalTo(buttonHeight)
         }
     }
+}
+
+extension PetProfileBasicInputView {
+    public func applySelectedStyle(to button: UIButton) {
+        button.backgroundColor = .buttonSelectedColor
+        button.layer.borderColor = UIColor.mainColor.cgColor
+        button.layer.borderWidth = 2
+        button.setTitleColor(.mainColor, for: .normal)
+    }
     
+    public func applyDeselectedStyle(to button: UIButton) {
+        button.backgroundColor = .textFieldBackgroundColor
+        button.layer.borderColor = UIColor.borderColor.cgColor
+        button.layer.borderWidth = 1
+        button.setTitleColor(.secondaryTextColor, for: .normal)
+    }
     
 }

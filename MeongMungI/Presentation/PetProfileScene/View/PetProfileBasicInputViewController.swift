@@ -14,6 +14,8 @@ public final class PetProfileBasicInputViewController: UIViewController {
     
     private let petProfileBasicInputView = PetProfileBasicInputView()
     
+    private let isMaleSelectedRelay = PublishRelay<Bool>()
+    
     private let disposeBag = DisposeBag()
     
     // MARK: - loadView
@@ -27,6 +29,7 @@ public final class PetProfileBasicInputViewController: UIViewController {
         setupNavigation()
         setupDelegate()
         hideKeyboardWhenTappedAround()
+        bindGenderButtons()
         
     }
     
@@ -43,6 +46,34 @@ public final class PetProfileBasicInputViewController: UIViewController {
         self.petProfileBasicInputView.birthSelectionField.delegate = self
     }
     
+    // MARK: - 반려동물 성별 버튼 바인드
+    private func bindGenderButtons() {
+        // 남아 버튼의 클릭은 true
+        petProfileBasicInputView.maleSelectionButton.rx.tap
+            .map { true }
+            .bind(to: isMaleSelectedRelay)
+            .disposed(by: disposeBag)
+        
+        // 남아 버튼의 클릭은 false
+        petProfileBasicInputView.femaleSelectionButton.rx.tap
+            .map { false }
+            .bind(to: isMaleSelectedRelay)
+            .disposed(by: disposeBag)
+        
+        isMaleSelectedRelay
+            .distinctUntilChanged()
+            .withUnretained(self)
+            .subscribe(onNext: { owner, isMale in
+                if isMale {
+                    owner.petProfileBasicInputView.applySelectedStyle(to: owner.petProfileBasicInputView.maleSelectionButton)
+                    owner.petProfileBasicInputView.applyDeselectedStyle(to: owner.petProfileBasicInputView.femaleSelectionButton)
+                } else {
+                    owner.petProfileBasicInputView.applySelectedStyle(to: owner.petProfileBasicInputView.femaleSelectionButton)
+                    owner.petProfileBasicInputView.applyDeselectedStyle(to: owner.petProfileBasicInputView.maleSelectionButton)
+                }
+            })
+            .disposed(by: disposeBag)
+    }
 }
 
 // MARK: - 텍스트필드 델리게이트 익스텐션

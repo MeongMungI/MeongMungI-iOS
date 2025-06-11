@@ -63,7 +63,21 @@ extension UIColor {
     static var postTypeBackgorundColor: UIColor {
         return UIColor(red: 229.0 / 255.0, green: 245.0 / 255.0, blue: 233.0 / 255.0, alpha: 1)
     }
-
+    
+    // 버튼 비활성화 색상
+    static var buttonDisableColor: UIColor {
+        return UIColor(red: 153.0 / 255.0, green: 237.0 / 255.0, blue: 205.0 / 255.0, alpha: 1)
+    }
+    
+    // 버튼 활성화 색상
+    static var buttonEableColor: UIColor {
+        return UIColor(red: 0.0 / 255.0, green: 209.0 / 255.0, blue: 129.0 / 255.0, alpha: 1)
+    }
+    
+    // 버튼 활성화 색상
+    static var buttonSelectedColor: UIColor {
+        return UIColor(red: 242.0 / 255.0, green: 253.0 / 255.0, blue: 249.0 / 255.0, alpha: 1)
+    }
 }
 
 
