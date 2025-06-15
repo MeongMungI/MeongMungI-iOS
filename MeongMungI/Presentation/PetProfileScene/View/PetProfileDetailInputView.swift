@@ -145,7 +145,7 @@ public final class PetProfileDetailInputView: UIView {
         $0.setTitle("확인", for: .normal)
         $0.titleLabel?.font = .pretendard(size: 18, family: .medium)
         $0.setTitleColor(.white, for: .normal)
-        $0.backgroundColor = .buttonEableColor
+        $0.backgroundColor = .buttonDisableColor
         $0.layer.cornerRadius = 17
         $0.clipsToBounds = true
     }

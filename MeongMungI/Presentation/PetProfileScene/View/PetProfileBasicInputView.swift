@@ -193,7 +193,7 @@ public final class PetProfileBasicInputView: UIView {
         $0.setTitle("다음", for: .normal)
         $0.titleLabel?.font = .pretendard(size: 18, family: .medium)
         $0.setTitleColor(.white, for: .normal)
-        $0.backgroundColor = .buttonEableColor
+        $0.backgroundColor = .buttonDisableColor
         $0.layer.cornerRadius = 17
         $0.clipsToBounds = true
     }

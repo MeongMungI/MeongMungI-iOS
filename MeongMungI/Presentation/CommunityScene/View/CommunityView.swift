@@ -20,35 +20,58 @@ public final class CommunityView: UIView {
         $0.textColor = .black
     }
     
+    // 플로팅 버튼
+    public let floatingButton = UIButton(type: .custom).then {
+        let imageConfig = UIImage.SymbolConfiguration(pointSize: 23, weight: .medium)
+        $0.setImage(UIImage(systemName: "plus", withConfiguration: imageConfig), for: .normal)
+        $0.backgroundColor = .mainColor
+        $0.tintColor = .white
+        $0.layer.shadowColor = UIColor.black.cgColor
+        $0.layer.shadowOpacity = 0.3
+        $0.layer.shadowOffset = CGSize(width: 0, height: 3)
+        $0.layer.shadowRadius = 6
+        $0.layer.cornerRadius = 30
+        $0.adjustsImageWhenHighlighted = false
+    }
+    
     // 네비게이션 왼쪽 바 버튼 아이템에 커스텀 레이블 적용
     public lazy var leftBarButtonItem = UIBarButtonItem(customView: titleLabel)
     
-    // init
+    
+    // MARK: - init
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        setupViews()
+        addSubviews()
         setupUI()
         setupLayout()
     }
     
+    // MARK: - required init
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-}
-
-extension CommunityView {
-    // 하위 뷰 설정
-    private func setupViews() {
+    // MARK: - addSubviews
+    private func addSubviews() {
+        self.addSubview(floatingButton)
     }
     
-    // 초기 UI 설정
+    // MARK: - setupUI
     private func setupUI() {
         self.backgroundColor = .backgroundColor
     }
     
-    // 초기 Layout 설정
+    // MARK: - setupLayout
     private func setupLayout() {
+        
+        floatingButton.snp.makeConstraints { make in
+            make.width.height.equalTo(60)
+            make.trailing.bottom.equalTo(safeAreaLayoutGuide).inset(20)
+        }
+        
     }
+    
+    
+    
 }

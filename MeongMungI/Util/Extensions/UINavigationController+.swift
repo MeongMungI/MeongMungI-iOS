@@ -9,7 +9,7 @@ import UIKit
 
 // MARK: - UINavigationController의 확장
 extension UINavigationController {
-    // 네비게이션 컨트롤러 바 커스텀
+    // MARK: - 네비게이션 컨트롤러 바 커스텀
     public func configureBarAppearnace() {
         let appearance = UINavigationBarAppearance()
         

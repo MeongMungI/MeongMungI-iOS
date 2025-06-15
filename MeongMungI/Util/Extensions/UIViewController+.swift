@@ -9,10 +9,6 @@ import UIKit
 
 // MARK: - UIViewController의 확장
 extension UIViewController {
-    // 네비게이션 왼쪽 바 버튼 아이템 설정
-    public func configureLeftNavigationBarItem(with item: UIBarButtonItem?) {
-        self.navigationItem.leftBarButtonItem = item
-    }
     
     // 제스처에 탭을 등록하고, 탭 이벤트가 발생할 경우 키보드 내리기
     func hideKeyboardWhenTappedAround() {

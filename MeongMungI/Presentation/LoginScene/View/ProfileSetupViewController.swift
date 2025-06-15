@@ -16,17 +16,14 @@ public final class ProfileSetupViewController: UIViewController {
     // custom view
     private let profileSetupView = ProfileSetupView()
     
-    // 로그인 화면을 관리하는 코디네이터
-    weak var coordinator: AppCoordinator?
-    
     private let disposeBag = DisposeBag()
     
-    // loadView
+    // MARK: - loadView
     public override func loadView() {
         self.view = profileSetupView
     }
     
-    // viewDidLoad
+    // MARK: - viewDidLoad
     public override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()

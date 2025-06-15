@@ -80,10 +80,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 extension AppDelegate {
-    // 탭 바 아이템의 초기 설정
+    // MARK: - configureTabBarItem
     private func configureTabBarItem() {
         // 탭 바 아이템 폰트 설정
-        let normalAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.pretendard(size: 10, family: .regular)]
+        let normalAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.pretendard(size: 10, family: .semiBold)]
         // 탭 바 아이템 폰트 적용
         UITabBarItem.appearance().setTitleTextAttributes(normalAttributes, for: .normal)
     }

@@ -12,33 +12,32 @@ import ReactorKit
 
 // MARK: - 홈 뷰컨트롤러
 public final class HomeViewController: UIViewController {
-    // 홈 화면을 관리하는 코디네이터
-    weak var coordinator: HomeCoordinator?
+
     private let homeView = HomeView()
     // 스냅샷과 데이터 소스
     private var snapshot = NSDiffableDataSourceSnapshot<HomeSection, HomeItem>()
     private var datasource: UICollectionViewDiffableDataSource<HomeSection, HomeItem>!
     private let disposeBag = DisposeBag()
     
-    // loadView
+    // MARK: - loadView
     public override func loadView() {
         self.view = homeView
     }
     
-    // viewDidLoad
+    // MARK: - viewDidLoad
     public override func viewDidLoad() {
         super.viewDidLoad()
         configureNavBarButtonItem()
         configureCollectionView()
     }
     
-    // 네비게이션 바 버튼 아이템 설정
+    // MARK: - 네비게이션 바 버튼 아이템 설정
     private func configureNavBarButtonItem() {
         self.navigationItem.leftBarButtonItem = homeView.leftBarButtonItem
         self.navigationItem.rightBarButtonItem = homeView.rightBarButtonItem
     }
     
-    // HomeLayoutProvider를 통해 컬렉션 뷰로 레이아웃 전달
+    // MARK: - HomeLayoutProvider를 통해 컬렉션 뷰로 레이아웃 전달
     private func configureCollectionView() {
         setupDiffableDatasource()
         // 데이터 소스 초기화 후 컬렉션 뷰에 전달
@@ -48,7 +47,7 @@ public final class HomeViewController: UIViewController {
         applySnapshot()
     }
 
-    // DiffableDatasource 설정
+    // MARK: - DiffableDatasource 설정
     private func setupDiffableDatasource() {
         datasource = UICollectionViewDiffableDataSource<HomeSection, HomeItem>(collectionView: homeView.collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
             switch itemIdentifier {
@@ -76,7 +75,7 @@ public final class HomeViewController: UIViewController {
         })
     }
     
-    // HeaderView 설정
+    // MARK: - HeaderView 설정
     private func setupHeaderView() {
         datasource.supplementaryViewProvider = { [weak self] collectionView, kind, indexPath -> UICollectionReusableView? in
             guard let self = self else { return nil }
@@ -112,7 +111,7 @@ public final class HomeViewController: UIViewController {
         }
     }
     
-    // 컬렉션 뷰에 스냅샷 적용
+    // MARK: - 컬렉션 뷰에 스냅샷 적용
     private func applySnapshot() {
         // 반려동물 아이템
         let pets = [
