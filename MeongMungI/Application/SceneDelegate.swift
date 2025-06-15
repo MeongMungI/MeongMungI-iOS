@@ -17,12 +17,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         self.window = window
 
-        let LoginViewController = LoginViewController()
-        let navigationController = UINavigationController(rootViewController: LoginViewController)
-        navigationController.configureBarAppearnace()
+        let loginViewController = LoginViewController()
+        let loginNavigationController = UINavigationController(rootViewController: loginViewController)
+        loginNavigationController.configureBarAppearnace()
         
-        window.overrideUserInterfaceStyle = .light // 라이트 모드만 허용
-        window.rootViewController = navigationController // 루트 뷰 교체
+        // 라이트 모드만 허용
+        window.overrideUserInterfaceStyle = .light
+        // 루트 뷰 교체
+        window.rootViewController = loginNavigationController
         window.makeKeyAndVisible()
     }
     
@@ -57,6 +59,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
     
-    
 }
 
+extension SceneDelegate {
+    // 탭 바로 화면 전환
+    func transitionToMainTabBarController() {
+        guard let window = window else { return }
+        let mainTabBarController = MainTabBarController()
+        // 루트 뷰 컨트롤러를 메인 탭 바 컨트롤러로 교체
+        window.rootViewController = mainTabBarController
+        // 루트 뷰 컨트롤러 전환 시 애니메이션 적용
+        UIView.transition(with: window, duration: 0.2, options: .transitionCrossDissolve, animations: nil, completion: nil)
+    }
+}

@@ -16,21 +16,23 @@ public final class LoginViewController: UIViewController {
     // 커스텀 로그인 뷰
     private let loginView = LoginView()
     
-    // 로그인 화면을 관리하는 코디네이터
-    weak var coordinator: AppCoordinator?
-    
     private let disposeBag = DisposeBag()
     
-    // loadView
+    // MARK: - loadView
     public override func loadView() {
         self.view = loginView
     }
     
-    // viewDidLoad
+    // MARK: - viewDidLoad
     public override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavi()
         kakaoLoginButtontapped()
         appleLoginButtonTapped()
+    }
+    
+    // MARK: - 네비게이션 설정
+    private func setupNavi() {
         // 뒤로가기 버튼 아이템 커스텀(A에서 B로 화면전환일 경우 A가 아닌 B의 속성이 변경)
         let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         backBarButtonItem.tintColor = .black
@@ -42,7 +44,10 @@ public final class LoginViewController: UIViewController {
         loginView.kakaoLoginButton.rx.tap
             .withUnretained(self)
             .subscribe(onNext: { owner, _ in
-                owner.coordinator?.transitionToMainTabBarController() // 코디네이터에 화면전환 요청
+                if let scene = owner.view.window?.windowScene,
+                   let sceneDelegate = scene.delegate as? SceneDelegate {
+                    sceneDelegate.transitionToMainTabBarController()
+                }
             })
             .disposed(by: disposeBag)
     }

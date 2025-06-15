@@ -33,7 +33,6 @@ public final class HomeView: UIView {
     private let heartButton = UIButton(type: .system).then {
         $0.setImage(UIImage(named: "heart"), for: .normal)
         $0.tintColor = .black
-        
     }
     
     // 네비게이션 오른쪽 바 버튼 아이템 - 알림 아이콘

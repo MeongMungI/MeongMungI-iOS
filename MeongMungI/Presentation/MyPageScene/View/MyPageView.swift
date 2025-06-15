@@ -23,32 +23,27 @@ public final class MyPageView: UIView {
     // 네비게이션 왼쪽 바 버튼 아이템에 커스텀 레이블 적용
     public lazy var leftBarButtonItem = UIBarButtonItem(customView: titleLabel)
     
-    // init
+    // MARK: - init
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        setupViews()
         setupUI()
         setupLayout()
     }
     
+    // MARK: - required init
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-}
-
-extension MyPageView {
-    // 하위 뷰 설정
-    private func setupViews() {
-    }
-    
-    // 초기 UI 설정
+    // MARK: - setupUI
     private func setupUI() {
         self.backgroundColor = .backgroundColor
     }
     
-    // 초기 Layout 설정
+    // MARK: - setupLayout
     private func setupLayout() {
+        
     }
+    
 }

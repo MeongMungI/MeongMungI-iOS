@@ -1,4 +1,5 @@
 PODS:
+  - Pageboy (4.2.0)
   - ReactorKit (3.2.0):
     - RxSwift (~> 6.0)
     - WeakMapTable (~> 1.1)
@@ -9,6 +10,8 @@ PODS:
     - RxSwift (= 6.9.0)
   - RxSwift (6.9.0)
   - SnapKit (5.7.1)
+  - Tabman (3.2.0):
+    - Pageboy (~> 4.2.0)
   - Then (3.0.0)
   - WeakMapTable (1.2.0)
 
@@ -17,27 +20,32 @@ DEPENDENCIES:
   - RxCocoa (= 6.9.0)
   - RxSwift (= 6.9.0)
   - SnapKit (~> 5.7.0)
+  - Tabman (~> 3.2)
   - Then
 
 SPEC REPOS:
   trunk:
+    - Pageboy
     - ReactorKit
     - RxCocoa
     - RxRelay
     - RxSwift
     - SnapKit
+    - Tabman
     - Then
     - WeakMapTable
 
 SPEC CHECKSUMS:
+  Pageboy: 7f7886f61c76633df635861bf7839caf2cabdb3e
   ReactorKit: e8b11d6b9c415405f381669b095c154a05b59eca
   RxCocoa: ac16414696ae706516be3e1ab00fcce5bdc9be8a
   RxRelay: 6b0c930e5cef57d5fe2032571e5e65b78e3cbdb1
   RxSwift: 31649ace6aceeb422e16ff71c60804f9c3281ed9
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
+  Tabman: 49f9181a2bfe5c29d002864dac2de8e0b7ea9180
   Then: 844265ae87834bbe1147d91d5d41a404da2ec27d
   WeakMapTable: 05c694ce8439a7a9ebabb56187287a63c57673d6
 
-PODFILE CHECKSUM: 2e68241e868894c39dd83342a0e6568767139509
+PODFILE CHECKSUM: 38b2d54dac56ccc88d734db7f90e9e6685b6890b
 
 COCOAPODS: 1.16.2
