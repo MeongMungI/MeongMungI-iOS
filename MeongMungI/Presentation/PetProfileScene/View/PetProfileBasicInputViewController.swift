@@ -27,9 +27,9 @@ public final class PetProfileBasicInputViewController: UIViewController {
     // MARK: - viewDidLoad
     public override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigation()
         setupDelegate()
         hideKeyboardWhenTappedAround()
+        configureBackBarButtonItem()
         bindGenderButtons()
         navigateToDetailInput()
     }
@@ -39,13 +39,6 @@ public final class PetProfileBasicInputViewController: UIViewController {
         super.viewDidAppear(animated)
         // 입력 진행상태 바 애니메이션 설정
         self.petProfileBasicInputView.inputProgressView.setProgress(0.35, animated: true)
-    }
-    
-    // MARK: - 네비게이션 설정
-    private func setupNavigation() {
-        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
-        backBarButtonItem.tintColor = .black
-        self.navigationItem.backBarButtonItem = backBarButtonItem
     }
     
     // MARK: - 델리게이트 설정
@@ -87,6 +80,7 @@ public final class PetProfileBasicInputViewController: UIViewController {
 // MARK: - 텍스트필드 델리게이트 익스텐션
 extension PetProfileBasicInputViewController: UITextFieldDelegate {
     public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        view.endEditing(true)
         if textField == petProfileBasicInputView.breedSelectionField {
             navigateToBreedSelection()
             return false
@@ -94,7 +88,6 @@ extension PetProfileBasicInputViewController: UITextFieldDelegate {
             presentToBirthSelection()
             return false
         }
-        
         return true
     }
 }
@@ -142,8 +135,10 @@ extension PetProfileBasicInputViewController {
         self.petProfileBasicInputView.nextButton.rx.tap
             .withUnretained(self)
             .subscribe(onNext: { owner, _ in
-                let petProfileDetailInputViewController = PetProfileDetailInputViewController()
-                owner.navigationController?.pushViewController(petProfileDetailInputViewController, animated: false)
+                owner.view.endEditing(true)
+                let detailVC = PetProfileDetailInputViewController()
+                owner.navigationController?.pushViewController(detailVC, animated: false)
+                
             })
             .disposed(by: disposeBag)
     }

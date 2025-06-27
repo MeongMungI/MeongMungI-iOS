@@ -14,11 +14,13 @@ import ReactorKit
 
 // MARK: - 사용자에게 커뮤니티 기능을 제공하는 뷰 컨트롤러
 public final class CommunityTabmanViewController: TabmanViewController {
-
     // 커뮤니티 커스텀 뷰
     private let communityView = CommunityView()
     
+    // 탭맨에 적용할 페이지
     private var pages = [UIViewController]()
+    
+    private let disposeBag = DisposeBag()
     
     // MARK: - loadView
     public override func loadView() {
@@ -32,6 +34,8 @@ public final class CommunityTabmanViewController: TabmanViewController {
         setupPages()
         setupTMBarButton()
         setupDelegate()
+        configureBackBarButtonItem()
+        navigateToPostEditor()
         // 페이지 간 스와이프 제거
         self.isScrollEnabled = false
     }
@@ -49,22 +53,27 @@ public final class CommunityTabmanViewController: TabmanViewController {
         let trendingPostsViewController = TrendingPostsViewController()
         let strollPostsViewController = StrollPostsViewController()
         let infoSharePostsViewController = InfoSharePostsViewController()
+        let questionViewController = QuestionPostsViewController()
         
         pages.append(allPostsViewController)
         pages.append(freePostsViewController)
         pages.append(trendingPostsViewController)
         pages.append(strollPostsViewController)
         pages.append(infoSharePostsViewController)
+        pages.append(questionViewController)
     }
     
     // MARK: - setupTMBarButton
     private func setupTMBarButton() {
         let bar = TMBar.ButtonBar()
         // 바의 정렬 상태
-        bar.layout.alignment = .centerDistributed
-        bar.layout.contentMode = .fit
+        bar.layout.alignment = .leading
+        // 탭바 버튼 간격
+        bar.layout.interButtonSpacing = 40
+        // 탭바 여백 설정
+        bar.layout.contentInset = UIEdgeInsets(top: 0.0, left: 20.0, bottom: 0.0, right: 20.0)
+//        bar.layout.contentMode = .fit
         bar.layout.transitionStyle = .snap
-        
         // MARK: - 배경 설정
         // 블러 효과 제거
         bar.backgroundView.style = .clear
@@ -90,7 +99,6 @@ public final class CommunityTabmanViewController: TabmanViewController {
         bar.indicator.tintColor = .primaryTextColor
         // 가장자리에서 인디케이터의 바운스 효과
         bar.indicator.overscrollBehavior = .bounce
-        
         addBar(bar, dataSource: self, at: .top)
     }
     
@@ -133,8 +141,25 @@ extension CommunityTabmanViewController: TMBarDataSource {
             return TMBarItem(title: "산책인증")
         case 4:
             return TMBarItem(title: "정보공유")
+        case 5:
+            return TMBarItem(title: "질문")
         default:
             return TMBarItem(title: "")
         }
+    }
+}
+
+// MARK: - 화면 전환 익스텐션
+extension CommunityTabmanViewController {
+    // MARK: - 게시글 작성 플로팅 버튼 클릭 이벤트 -> 게시글 작성 화면으로 이동
+    private func navigateToPostEditor() {
+        communityView.floatingButton.rx.tap
+            .withUnretained(self)
+            .subscribe(onNext: { owner, _ in
+                let postEditorViewController = PostEditorViewController()
+                postEditorViewController.hidesBottomBarWhenPushed = true
+                owner.navigationController?.pushViewController(postEditorViewController, animated: true)
+            })
+            .disposed(by: disposeBag)
     }
 }

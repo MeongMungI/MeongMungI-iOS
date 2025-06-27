@@ -11,11 +11,9 @@ import RxCocoa
 
 // MARK: - 사용자가 반려동물의 생년월일을 입력하기 위한 뷰 컨트롤러
 public final class BirthSelectionViewController: UIViewController {
-    
     private let birthSelectionView = BirthSelectionView()
     // 이전화면에 생년월일 데이터를 전달하기 위한 클로저
     public var didSelectBirth: ((String) -> Void)?
-    
     private let disposeBag = DisposeBag()
     
     // MARK: - loadView

@@ -36,6 +36,7 @@ public final class PetProfileDetailInputViewController: UIViewController {
     // MARK: - viewDidAppear
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        view.layoutIfNeeded()
         // 입력 진행상태 바 애니메이션 설정
         self.petProfileDetailInputView.inputProgressView.setProgress(0.7, animated: true)
     }
