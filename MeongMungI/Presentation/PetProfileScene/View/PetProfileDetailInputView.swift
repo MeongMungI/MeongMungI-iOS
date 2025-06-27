@@ -137,7 +137,6 @@ public final class PetProfileDetailInputView: UIView {
         $0.clipsToBounds = true
         $0.showsVerticalScrollIndicator = false
         $0.textContainerInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
-        
     }
     
     // 확인 버튼

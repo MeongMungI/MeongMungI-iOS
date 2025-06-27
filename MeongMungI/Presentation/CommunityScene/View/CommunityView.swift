@@ -37,7 +37,6 @@ public final class CommunityView: UIView {
     // 네비게이션 왼쪽 바 버튼 아이템에 커스텀 레이블 적용
     public lazy var leftBarButtonItem = UIBarButtonItem(customView: titleLabel)
     
-    
     // MARK: - init
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -57,6 +56,7 @@ public final class CommunityView: UIView {
         self.addSubview(floatingButton)
     }
     
+    
     // MARK: - setupUI
     private func setupUI() {
         self.backgroundColor = .backgroundColor
@@ -64,12 +64,10 @@ public final class CommunityView: UIView {
     
     // MARK: - setupLayout
     private func setupLayout() {
-        
         floatingButton.snp.makeConstraints { make in
             make.width.height.equalTo(60)
             make.trailing.bottom.equalTo(safeAreaLayoutGuide).inset(20)
         }
-        
     }
     
     
