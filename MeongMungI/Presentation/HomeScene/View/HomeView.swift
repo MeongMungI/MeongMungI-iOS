@@ -24,20 +24,21 @@ public final class HomeView: UIView {
     // 버튼을 담고 있는 스택 뷰(하트 + 종)
     private lazy var stackView = UIStackView.init(arrangedSubviews: [heartButton, bellButton]).then {
         $0.axis = .horizontal
-        $0.distribution = .equalSpacing
-        $0.alignment = .fill
-        $0.spacing = 25
+        $0.alignment = .center
+        $0.spacing = 20
     }
     
     // 네비게이션 오른쪽 바 버튼 아이템 - 하트 아이콘 인터페이스
-    private let heartButton = UIButton(type: .system).then {
+    private let heartButton = UIButton(type: .custom).then {
         $0.setImage(UIImage(named: "heart"), for: .normal)
+        $0.contentMode = .scaleAspectFit
         $0.tintColor = .black
     }
     
     // 네비게이션 오른쪽 바 버튼 아이템 - 알림 아이콘
-    private let bellButton = UIButton(type: .system).then{
+    private let bellButton = UIButton(type: .custom).then{
         $0.setImage(UIImage(named: "bell"), for: .normal)
+        $0.contentMode = .scaleAspectFit
         $0.tintColor = .black
     }
     
@@ -87,6 +88,14 @@ public final class HomeView: UIView {
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        
+        heartButton.snp.makeConstraints { make in
+            make.size.equalTo(21)
+        }
+        
+        bellButton.snp.makeConstraints { make in
+            make.size.equalTo(21)
+        }
 
     }
 }
@@ -106,7 +115,7 @@ public enum HomeSection: Hashable {
 }
 
 // 홈 화면 아이템
-public enum HomeItem: Hashable {
+enum HomeItem: Hashable {
     case myPetList(Pet)
     case monthlyStrollStats(Stroll)
     case strollHistory(id: Int, image: UIImage)
@@ -135,21 +144,7 @@ public struct Stroll: Hashable {
     let duration: Double
 }
 
-// 임시 게시글 구조체
-public struct Post: Hashable {
-    // 게시글 순위
-    let rank: Int
-    // 게시글 타입
-    let type: String
-    // 게시글 제목
-    let title: String
-    // 게시글 좋아요 수
-    let like: Int
-    // 게시글 댓글 수
-    let comment: Int
-    // 썸네일 이미지
-    let thumbnailImage: UIImage?
-}
+
 
 // 임시 산책 랭킹 구조체
 public struct StrollRanking: Hashable {

@@ -13,7 +13,7 @@ import SnapKit
 public final class CommunityView: UIView {
     
     // 네비게이션 왼쪽 바 버튼 커스텀 레이블
-    private let titleLabel = UILabel().then {
+    public let titleLabel = UILabel().then {
         $0.text = "커뮤니티"
         $0.numberOfLines = 1
         $0.font = UIFont.Moneygraphy(size: 25)
@@ -34,8 +34,11 @@ public final class CommunityView: UIView {
         $0.adjustsImageWhenHighlighted = false
     }
     
-    // 네비게이션 왼쪽 바 버튼 아이템에 커스텀 레이블 적용
-    public lazy var leftBarButtonItem = UIBarButtonItem(customView: titleLabel)
+    public let searchButton = UIButton(type: .custom).then {
+        $0.setImage(UIImage(named: "search"), for: .normal)
+        $0.contentMode = .scaleAspectFit
+        $0.tintColor = .black
+    }
     
     // MARK: - init
     public override init(frame: CGRect) {
@@ -59,7 +62,7 @@ public final class CommunityView: UIView {
     
     // MARK: - setupUI
     private func setupUI() {
-        self.backgroundColor = .backgroundColor
+        self.backgroundColor = .white
     }
     
     // MARK: - setupLayout
@@ -68,8 +71,9 @@ public final class CommunityView: UIView {
             make.width.height.equalTo(60)
             make.trailing.bottom.equalTo(safeAreaLayoutGuide).inset(20)
         }
+        
+        searchButton.snp.makeConstraints { make in
+            make.size.equalTo(21)
+        }
     }
-    
-    
-    
 }

@@ -8,7 +8,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import ReactorKit
 
 // MARK: - 홈 뷰컨트롤러
 public final class HomeViewController: UIViewController {
@@ -128,14 +127,6 @@ public final class HomeViewController: UIViewController {
             .strollHistory(id: 3, image: .cat5)
         ]
         
-        let posts: [Post] = [
-            Post(rank: 1, type: "산책인증", title: "우리집 고양이 츄르를 좋아해 우리집 고양이 츄르를 좋아해", like: 24, comment: 136, thumbnailImage: .cat10),
-            Post(rank: 2, type: "산책인증", title: "주말에 지인하고 벚꽃보러 석촌호수에 다녀왔어요. 맛집도 갔어요.", like: 19, comment: 76, thumbnailImage: nil),
-            Post(rank: 3, type: "산책인증", title: "여긴 온종일 비가 왔어", like: 14, comment: 34, thumbnailImage: .cat7),
-            Post(rank: 4, type: "산책인증", title: "우리 강아지가 너무 귀여워요~", like: 12, comment: 29, thumbnailImage: nil),
-            Post(rank: 5, type: "산책인증", title: "우리 강아지가 너무 귀여워요~", like: 9, comment: 11, thumbnailImage: nil),
-            Post(rank: 6, type: "산책인증", title: "우리 강아지가 너무 귀여워요~", like: 4, comment: 0, thumbnailImage: nil),
-        ]
         
         let strollRankings: [StrollRanking] = [
             StrollRanking(rank: 1, pet: Pet(image: .cat3, name: "나비", breed: "페르시안 친칠라", birth: ""), TotalDistance: 98.12),
@@ -149,7 +140,6 @@ public final class HomeViewController: UIViewController {
         // 아이템 변환
         let petItems = pets.map { HomeItem.myPetList($0) }
         let monthlyStrollItems = [HomeItem.monthlyStrollStats(Stroll(count: 5, distance: 19, duration: 45.16))]
-        let hotPostItems = posts.map { HomeItem.hotPost($0) }
         let strollRankingItems = strollRankings.map { HomeItem.strollRanking($0) }
         
         
@@ -168,7 +158,6 @@ public final class HomeViewController: UIViewController {
         snapshot.appendItems(petItems, toSection: petProfileSection)
         snapshot.appendItems(monthlyStrollItems, toSection: monthlyStrollSection)
         snapshot.appendItems(items, toSection: strollHistorySection)
-        snapshot.appendItems(hotPostItems, toSection: hotPostSection)
         snapshot.appendItems(strollRankingItems, toSection: strollRankingSection)
         
         datasource.apply(snapshot, animatingDifferences: false)

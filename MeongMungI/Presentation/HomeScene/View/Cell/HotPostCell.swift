@@ -148,20 +148,11 @@ extension HotPostCell {
     }
     
     // 셀 configure
-    public func configure(post: Post) {
-        self.rankingLabel.text = "\(post.rank)"
-        self.typeLabel.text = post.type
+    func configure(post: Post) {
+        self.rankingLabel.text = "1"
+        self.typeLabel.text = post.boardType.rawValue
         self.titleLabel.text = post.title
-        self.likeAndCommentLabel.text = "좋아요 \(post.like)\t댓글 \(post.comment)"
-        
-        // 썸네일 이미지의 유무에 따른 썸네일 이미지 뷰 설정
-        if let thumbnail = post.thumbnailImage {
-            self.thumbnailImageView.image = thumbnail
-            self.thumbnailImageView.isHidden = false
-        } else {
-            self.thumbnailImageView.image = nil
-            self.thumbnailImageView.isHidden = true
-        }
+        self.likeAndCommentLabel.text = "좋아요 \(post.likesCount)\t댓글 \(post.commentsCount)"
     }
     
 }
