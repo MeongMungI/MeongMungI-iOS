@@ -12,6 +12,7 @@ target 'MeongMungI' do
 	pod 'SnapKit', '~> 5.7.0'
 	pod 'ReactorKit'
         pod 'Tabman', '~> 3.2'
+        pod 'Alamofire'
 
   target 'MeongMungITests' do
     inherit! :search_paths

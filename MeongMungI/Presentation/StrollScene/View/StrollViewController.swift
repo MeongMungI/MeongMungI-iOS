@@ -8,7 +8,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import ReactorKit
 
 // MARK: - 산책 뷰 컨트롤러
 public final class StrollViewController: UIViewController {

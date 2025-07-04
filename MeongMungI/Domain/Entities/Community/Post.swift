@@ -14,10 +14,10 @@ public struct Post: Hashable, Identifiable {
     // MARK: - 게시글의 게시판 타입
     public enum BoardType: String, CaseIterable {
         case all = "전체"
-        case free = "자유"
+        case general = "자유"
         case trending = "인기"
-        case stroll = "산책인증"
-        case info = "정보공유"
+        case walking = "산책인증"
+        case information = "정보공유"
         case question = "질문"
     }
     

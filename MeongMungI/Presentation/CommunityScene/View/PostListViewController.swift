@@ -62,7 +62,7 @@ public final class PostListViewController: UIViewController {
         // 12시간 전
         Post(
             id: "6",
-            boardType: .stroll,
+            boardType: .walking,
             title: "부산 해운대 새벽 산책 후기 🏖️",
             content: "새벽 5시에 가면 사람도 적고 시원해요! 모래 조심만 하면 굿!",
             authorID: "busanWalker",
@@ -90,7 +90,7 @@ public final class PostListViewController: UIViewController {
         // 1일 전
         Post(
             id: "3",
-            boardType: .stroll,
+            boardType: .walking,
             title: "오늘 한강 산책 코스 추천해요 🚶‍♀️",
             content: "뚝섬 → 서울숲 코스, 강아지들이 정말 좋아해요!",
             authorID: "dailystroll",
@@ -104,7 +104,7 @@ public final class PostListViewController: UIViewController {
         // 30시간 전
         Post(
             id: "9",
-            boardType: .stroll,
+            boardType: .walking,
             title: "양재천 야간 산책로",
             content: "조명이 예뻐서 밤에도 안전하게 산책할 수 있어요.",
             authorID: "nightwalker",
