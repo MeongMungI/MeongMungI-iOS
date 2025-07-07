@@ -9,7 +9,7 @@ import Foundation
 
 import RxSwift
 
-final class PostRepository: PostRepositoryProtocol {
+final class CommunityRepository: CommunityRepositoryProtocol {
     private let apiService: APIServiceProtocol
     
     init(apiService: APIServiceProtocol = APIService()) {
@@ -19,7 +19,7 @@ final class PostRepository: PostRepositoryProtocol {
     func createPost() {
     }
     
-    func fetchList() -> Single<[PostResponseDTO]> {
+    func fetchList() -> Single<[PostDTO]> {
         return apiService.request(PostEndpoint.list)
     }
     
