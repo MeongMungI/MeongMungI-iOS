@@ -160,41 +160,45 @@ public final class PostListViewController: UIViewController {
     private lazy var postsBehaviorRelay = BehaviorRelay<[Post]>(value: posts)
     
     // MARK: - init
+    
     init(boardType: Post.BoardType) {
         self.boardType = boardType
         super.init(nibName: nil, bundle: nil)
     }
     
-    // MARK: - required init
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - loadView
+    // MARK: - View
+    
     public override func loadView() {
         self.view = postListView
     }
     
-    // MARK: - viewDidLoad
     public override func viewDidLoad() {
         super.viewDidLoad()
         bindTableView()
     }
     
-    // MARK: - 테이블 뷰 바인드
+    // MARK: - Actions
+    
     private func bindTableView() {
         postsBehaviorRelay
             .asDriver(onErrorDriveWith: .empty())
-            .drive(postListView.tableView.rx.items(cellIdentifier: PostListTableViewCell.ID,
-                                                   cellType:  PostListTableViewCell.self)
+            .drive(postListView.tableView.rx.items(
+                cellIdentifier: PostListTableViewCell.ID,
+                cellType:  PostListTableViewCell.self)
             ) { row, element, cell in
                 cell.configure(with: element)
             }
             .disposed(by: disposeBag)
     }
     
-    
+    private func tapped() {
+        
+    }
 
 
 }

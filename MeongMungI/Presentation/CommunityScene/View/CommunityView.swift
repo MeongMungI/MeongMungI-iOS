@@ -9,10 +9,10 @@ import UIKit
 import Then
 import SnapKit
 
-// MARK: - 커뮤니티 커스텀 뷰
+/// 커뮤니티 커스텀 뷰
 public final class CommunityView: UIView {
     
-    // 네비게이션 왼쪽 바 버튼 커스텀 레이블
+    /// 네비게이션 왼쪽 바 버튼 커스텀 레이블
     public let titleLabel = UILabel().then {
         $0.text = "커뮤니티"
         $0.numberOfLines = 1
@@ -20,7 +20,7 @@ public final class CommunityView: UIView {
         $0.textColor = .black
     }
     
-    // 플로팅 버튼
+    /// 게시글 작성 플로팅 버튼
     public let floatingButton = UIButton(type: .custom).then {
         let imageConfig = UIImage.SymbolConfiguration(pointSize: 23, weight: .medium)
         $0.setImage(UIImage(systemName: "plus", withConfiguration: imageConfig), for: .normal)
@@ -34,6 +34,7 @@ public final class CommunityView: UIView {
         $0.adjustsImageWhenHighlighted = false
     }
     
+    /// 게시글 서치 버튼
     public let searchButton = UIButton(type: .custom).then {
         $0.setImage(UIImage(named: "search"), for: .normal)
         $0.contentMode = .scaleAspectFit
@@ -41,6 +42,7 @@ public final class CommunityView: UIView {
     }
     
     // MARK: - init
+    
     public override init(frame: CGRect) {
         super.init(frame: frame)
         addSubviews()
@@ -48,24 +50,23 @@ public final class CommunityView: UIView {
         setupLayout()
     }
     
-    // MARK: - required init
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - addSubviews
+    // MARK: - View
+    
     private func addSubviews() {
         self.addSubview(floatingButton)
     }
     
-    
-    // MARK: - setupUI
     private func setupUI() {
         self.backgroundColor = .white
     }
     
-    // MARK: - setupLayout
+    // MARK: - Layout
+    
     private func setupLayout() {
         floatingButton.snp.makeConstraints { make in
             make.width.height.equalTo(60)

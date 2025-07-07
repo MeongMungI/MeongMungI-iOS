@@ -48,8 +48,8 @@ public final class MainTabBarController: UITabBarController {
             strollNVC.configureBarAppearnace()
     
             // 커뮤니티 네비게이션 컨트롤러
-            let communityTabmanViewController = CommunityTabmanViewController()
-            let communityNVC = UINavigationController(rootViewController: communityTabmanViewController)
+            let communityViewController = CommunityViewController()
+            let communityNVC = UINavigationController(rootViewController: communityViewController)
             communityNVC.configureBarAppearnace()
     
             // 마이 페이지 네비게이션 컨트롤러
